@@ -86,7 +86,7 @@ const Dashboard = ({ setActiveSection }: DashboardProps) => {
   return (
     <div className="dashboard-bg rounded-xl">
       {/* Moving Announcement Banner - Fixed within Dashboard */}
-      <div className="w-full sticky top-0 z-20 border-y border-[#2D2D30] py-2 bg-[#FF6B6B] backdrop-blur-m">
+      <div className="w-full sticky top-0 z-20 border-y border-[#2D2D30] py-2 bg-[#FF6B6f] backdrop-blur-m opacity-70">
   <div className="h-10 flex items-center justify-center relative overflow-hidden">
     <div className="marquee-container w-full whitespace-nowrap">
       <div className="marquee-content inline-flex items-center text-white text-base font-medium animate-marquee">

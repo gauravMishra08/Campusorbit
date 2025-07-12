@@ -1,30 +1,109 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, MapPin, Users, Plus } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users } from 'lucide-react';
 
 const EventsHub = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   
   const filters = ['All', 'Upcoming', 'Completed'];
   
-  const events = Array(8).fill(null).map((_, index) => ({
-    id: index + 1,
-    title: 'HackSRM 5.0',
-    organizer: 'Github Community SRM',
-    date: 'April 05-06, 2025',
-    time: 'from 11:00 IST to 17:00 IST',
-    image: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=400',
-    status: 'upcoming'
-  }));
+  const events = [
+    {
+      id: 1,
+      title: 'HackSRM 5.0',
+      organizer: 'Github Community SRM',
+      date: 'April 05-06, 2025',
+      time: '11:00 IST to 17:00 IST',
+      image: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg',
+      type: 'HACKATHON',
+      status: 'upcoming'
+    },
+    {
+      id: 2,
+      title: 'Tech Symposium',
+      organizer: 'SRM IEEE',
+      date: 'March 15, 2025',
+      time: '09:30 IST to 16:00 IST',
+      image: 'https://images.pexels.com/photos/1181359/pexels-photo-1181359.jpeg',
+      type: 'CONFERENCE',
+      status: 'upcoming'
+    },
+    {
+      id: 3,
+      title: 'Coding Challenge',
+      organizer: 'SRM ACM',
+      date: 'February 28, 2025',
+      time: '14:00 IST to 18:00 IST',
+      image: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg',
+      type: 'COMPETITION',
+      status: 'upcoming'
+    },
+    {
+      id: 4,
+      title: 'Startup Expo',
+      organizer: 'Entrepreneurship Cell',
+      date: 'January 20, 2025',
+      time: '10:00 IST to 19:00 IST',
+      image: 'https://images.pexels.com/photos/3182750/pexels-photo-3182750.jpeg',
+      type: 'EXHIBITION',
+      status: 'completed'
+    },
+    {
+      id: 5,
+      title: 'Cultural Fest',
+      organizer: 'Student Union',
+      date: 'December 12-14, 2024',
+      time: 'All Day',
+      image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg',
+      type: 'FESTIVAL',
+      status: 'completed'
+    },
+    {
+      id: 6,
+      title: 'AI Workshop',
+      organizer: 'Data Science Club',
+      date: 'November 25, 2024',
+      time: '13:00 IST to 16:00 IST',
+      image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
+      type: 'WORKSHOP',
+      status: 'completed'
+    },
+    {
+      id: 7,
+      title: 'Sports Tournament',
+      organizer: 'Sports Council',
+      date: 'October 05-07, 2024',
+      time: '08:00 IST to 20:00 IST',
+      image: 'https://images.pexels.com/photos/248547/pexels-photo-248547.jpeg',
+      type: 'SPORTS',
+      status: 'completed'
+    },
+    {
+      id: 8,
+      title: 'Alumni Meet',
+      organizer: 'SRM Alumni Association',
+      date: 'September 15, 2024',
+      time: '18:00 IST onwards',
+      image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
+      type: 'NETWORKING',
+      status: 'completed'
+    }
+  ];
+
+  // Filter events based on active filter
+  const filteredEvents = activeFilter === 'All' 
+    ? events 
+    : events.filter(event => 
+        activeFilter === 'Upcoming' 
+          ? event.status === 'upcoming' 
+          : event.status === 'completed'
+      );
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FF6B6B] mb-2">Events Hub</h1>
-        <p className="text-lg text-[#22C55E] mb-2">
-          Explore and register for upcoming SRM events. Hosting one?
-        </p>
         <p className="text-lg text-[#22C55E]">
-          Add your event to the list!
+          Explore and register for upcoming SRM events.
         </p>
       </div>
 
@@ -47,16 +126,16 @@ const EventsHub = () => {
 
       {/* Events Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {events.map((event) => (
+        {filteredEvents.map((event) => (
           <div key={event.id} className="bg-[#2A2A2E] rounded-2xl overflow-hidden shadow-lg border border-[#2D2D30] hover:border-[#FF6B6B]/30 transition-all duration-200">
             <div className="relative">
               <img
-                src={event.image || "/placeholder.svg"}
+                src={event.image}
                 alt={event.title}
                 className="w-full h-48 object-cover"
               />
               <div className="absolute top-4 left-4 bg-white text-[#0E0E10] px-3 py-1 rounded-lg font-bold text-sm">
-                HACKATHON
+                {event.type}
               </div>
             </div>
             <div className="p-5 space-y-4">
@@ -76,19 +155,11 @@ const EventsHub = () => {
                 </div>
               </div>
               <button className="w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white py-3 px-4 rounded-xl transition-all duration-200 font-medium shadow-lg">
-                Register
+                {event.status === 'upcoming' ? 'Register' : 'View Details'}
               </button>
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Add Event Button */}
-      <div className="flex justify-center lg:justify-end">
-        <button className="bg-[#22C55E] hover:bg-[#16A34A] text-white px-8 py-4 rounded-xl font-medium transition-all duration-200 flex items-center gap-3 shadow-lg">
-          <Plus className="w-5 h-5" />
-          Add Your Event
-        </button>
       </div>
     </div>
   );
