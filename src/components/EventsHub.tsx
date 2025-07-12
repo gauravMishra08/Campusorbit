@@ -17,27 +17,27 @@ const EventsHub = () => {
   }));
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div>
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-400 mb-2">Events Hub</h1>
-        <p className="text-lg text-green-400 mb-2">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FF6B6B] mb-2">Events Hub</h1>
+        <p className="text-lg text-[#22C55E] mb-2">
           Explore and register for upcoming SRM events. Hosting one?
         </p>
-        <p className="text-lg text-green-400">
+        <p className="text-lg text-[#22C55E]">
           Add your event to the list!
         </p>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-3">
         {filters.map((filter) => (
           <button
             key={filter}
             onClick={() => setActiveFilter(filter)}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
               activeFilter === filter
-                ? 'bg-green-600 text-white'
-                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                ? 'bg-[#22C55E] text-white shadow-lg'
+                : 'bg-[#2A2A2E] text-[#A1A1AA] hover:bg-[#2D2D30] hover:text-[#F4F4F5]'
             }`}
           >
             {filter}
@@ -46,22 +46,22 @@ const EventsHub = () => {
       </div>
 
       {/* Events Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {events.map((event) => (
-          <div key={event.id} className="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+          <div key={event.id} className="bg-[#2A2A2E] rounded-2xl overflow-hidden shadow-lg border border-[#2D2D30] hover:border-[#FF6B6B]/30 transition-all duration-200">
             <div className="relative">
               <img
-                src={event.image}
+                src={event.image || "/placeholder.svg"}
                 alt={event.title}
                 className="w-full h-48 object-cover"
               />
-              <div className="absolute top-4 left-4 bg-white text-gray-900 px-3 py-1 rounded-lg font-bold text-sm">
+              <div className="absolute top-4 left-4 bg-white text-[#0E0E10] px-3 py-1 rounded-lg font-bold text-sm">
                 HACKATHON
               </div>
             </div>
-            <div className="p-4 space-y-3">
-              <h3 className="text-xl font-bold text-green-400">{event.title}</h3>
-              <div className="space-y-2 text-sm text-gray-300">
+            <div className="p-5 space-y-4">
+              <h3 className="text-xl font-bold text-[#22C55E]">{event.title}</h3>
+              <div className="space-y-2 text-sm text-[#A1A1AA]">
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4" />
                   <span>by {event.organizer}</span>
@@ -75,7 +75,7 @@ const EventsHub = () => {
                   <span>{event.time}</span>
                 </div>
               </div>
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+              <button className="w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white py-3 px-4 rounded-xl transition-all duration-200 font-medium shadow-lg">
                 Register
               </button>
             </div>
@@ -85,7 +85,7 @@ const EventsHub = () => {
 
       {/* Add Event Button */}
       <div className="flex justify-center lg:justify-end">
-        <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center gap-2">
+        <button className="bg-[#22C55E] hover:bg-[#16A34A] text-white px-8 py-4 rounded-xl font-medium transition-all duration-200 flex items-center gap-3 shadow-lg">
           <Plus className="w-5 h-5" />
           Add Your Event
         </button>

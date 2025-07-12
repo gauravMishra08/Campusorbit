@@ -1,175 +1,193 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+"use client"
+
+import { useState } from "react"
+import { ChevronDown, ChevronUp, ExternalLink, Github, Linkedin, Instagram } from "lucide-react"
 
 const About = () => {
-  const [openFAQ, setOpenFAQ] = useState<number | null>(0);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(0)
 
   const founders = [
     {
-      name: 'Hanush Singh',
-      role: 'Founder & Developer',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      portfolio: '#'
+      name: "Hanush Singh",
+      role: "Founder",
+      image: "Hanush.png",
+      portfolio: "https://hanush.co.in/",
+      github: "https://github.com/hanushrajputh",
+      linkedin: "https://www.linkedin.com/in/hanushsinghrajputh/",
+      instagram: "https://www.instagram.com/hanushsinghrajputh/"
     },
     {
-      name: 'Utkarsh Jaiswal',
-      role: 'Developer',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-      portfolio: '#'
+      name: "Gaurav Mishra",
+      role: "Designer & Developer",
+      image: "Gaurav.png",
+      portfolio: "https://gauravmishra08.vercel.app/",
+      github: "https://github.com/gauravMishra08",
+      linkedin: "https://www.linkedin.com/in/gaurav-mishra-2668691b3/",
+      instagram: "https://www.instagram.com/_mishraagaurav/"
     },
     {
-      name: 'Saatvik Shashank',
-      role: 'Developer',
-      image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400',
-      portfolio: '#'
+      name: "Utkarsh Jaiswal",
+      role: "Developer",
+      image: "Utkarsh.png",
+      portfolio: "https://karshj.framer.website/",
+      github: "https://github.com/UtkarshJaiswal1406",
+      linkedin: "https://www.linkedin.com/in/1406utkarsh/",
+      instagram: "https://www.instagram.com/its_karshj/"
     },
     {
-      name: 'Rashmika Das',
-      role: 'Developer',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      portfolio: '#'
+      name: "Saatvik Shashank",
+      role: "Developer",
+      image: "Saatvik.png",
+      portfolio: "https://saatvikss-teal.vercel.app/",
+      github: "https://github.com/SaatvikSS",
+      linkedin: "https://www.linkedin.com/in/saatvikss/",
+      instagram: "https://www.instagram.com/saatvik_ss/"
     },
     {
-      name: 'Gaurav Mishra',
-      role: 'UI/UX Designer',
-      image: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400',
-      portfolio: '#'
-    }
-  ];
+      name: "Rashmika Das",
+      role: "Developer",
+      image: "Rashmika.png",
+      portfolio: "https://rashmika-portfolio-eight.vercel.app/",
+      github: "https://github.com/SillyLlam",
+      linkedin: "https://www.linkedin.com/in/rashmika-das-82a08b2b6/",
+      instagram: "https://www.instagram.com/rashmiikka/"
+    },
+  ]
 
   const faqs = [
     {
-      question: 'What is CampusOrbit?',
-      answer: 'CampusOrbit is a student-driven platform designed to simplify and enhance college life. From academic needs to social events, everything you need is just a tap away.'
+      question: "What exactly is CampusOrbit?",
+      answer:
+        "CampusOrbit is your all-in-one campus companion app that connects all aspects of college life - from academics and hostel living to events and marketplaces. Think of it as your digital campus ecosystem built by students, for students.",
     },
     {
-      question: 'Who can use CampusOrbit?',
-      answer: 'Any student from your campus can use CampusOrbit - whether you\'re a fresher or a final-year student. It\'s built for the entire college community.'
+      question: "How is this different from our college portal?",
+      answer:
+        "Unlike official portals that focus on academics, CampusOrbit integrates everything - find roommates, check mess menus, buy/sell items, discover events, and more. It's designed around actual student needs with a modern, user-friendly interface.",
     },
     {
-      question: 'Is CampusOrbit an official SRM app?',
-      answer: 'CampusOrbit is developed by SRM students for SRM students. While it\'s not officially affiliated with SRM management yet, it\'s a thriving, community-driven initiative.'
+      question: "How can I find my roommate before hostel check-in?",
+      answer:
+        "Use the 'Find My Roommate' feature. Just search by your room number or register your details, and if your roommate has done the same, you’ll be able to connect.",
     },
     {
-      question: 'How do I give feedback or suggest a new feature?',
-      answer: 'Use the Feedback section or reach out via WhatsApp or Instagram. We actively consider all suggestions from students!'
+      question: "Can I contribute to CampusOrbit's development?",
+      answer:
+        "Yes! We're open to collaborations. Reach out to us directly for opportunities.",
     },
     {
-      question: 'Will more features be added soon?',
-      answer: 'Absolutely! We\'re constantly evolving. Stay tuned for new tools, features, and updates.'
-    }
-  ];
+      question: "Will this work for all SRM campuses?",
+      answer: 
+      "Currently optimized for SRM KTR, but we're expanding to other SRM campuses soon. Stay tuned for updates!",
+    },
+  ]
 
   const toggleFAQ = (index: number) => {
-    setOpenFAQ(openFAQ === index ? null : index);
-  };
+    setOpenFAQ(openFAQ === index ? null : index)
+  }
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-8 space-y-8">
       {/* About Section */}
-      <div className="bg-[#0F0F0F]/90 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#FF5E5B] mb-6">About CampusOrbit</h1>
-        <div className="space-y-4 text-[#CFCFCF] leading-relaxed">
+      <div className="bg-[#2A2A2E] rounded-2xl p-8 border border-[#3A3A3E]">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#FF6B6B] mb-6">About CampusOrbit</h1>
+        <div className="space-y-4 text-[#E0E0E0] leading-relaxed">
           <p className="text-lg">
-            CampusOrbit is a student-driven digital platform created to unify and simplify every aspect of college life - 
-            from academics and hostel life to community, creativity, and convenience.
+            Born from late-night hostel discussions and countless "there should be an app for this" moments, CampusOrbit is 
+            revolutionizing how SRM students navigate college life. We've combined essential services into one 
+            intuitive platform.
           </p>
           <p>
-            We're more than just an app - we're a movement to centralize and simplify your campus experience.
+            From finding your roommate before move-in day to selling your textbooks after exams - we've got every 
+            campus life scenario covered.
           </p>
         </div>
       </div>
 
       {/* Vision & Mission */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-[#0F0F0F]/90 backdrop-blur-sm rounded-xl p-6 border border-gray-800">
-          <h2 className="text-2xl font-bold text-[#FF5E5B] mb-4">Vision</h2>
-          <p className="text-[#CFCFCF] leading-relaxed">
-            To empower every college student through a unified digital ecosystem that enhances learning, living, and 
-            connecting.
+        <div className="bg-[#2A2A2E] rounded-2xl p-6 border border-[#3A3A3E]">
+          <h2 className="text-2xl font-bold text-[#FF8E8E] mb-4">Our Vision</h2>
+          <p className="text-[#E0E0E0] leading-relaxed">
+            To create a self-sustaining digital ecosystem where every SRM student can thrive academically, socially, 
+            and personally through technology that understands campus life.
           </p>
         </div>
-        
-        <div className="bg-[#0F0F0F]/90 backdrop-blur-sm rounded-xl p-6 border border-gray-800">
-          <h2 className="text-2xl font-bold text-[#FF5E5B] mb-4">Mission</h2>
-          <p className="text-[#CFCFCF] leading-relaxed">
-            To deliver intuitive tools and seamless access to everything you need - whether it's finding a roommate, 
-            joining a community, pre-booking meals, or exploring campus events.
+
+        <div className="bg-[#2A2A2E] rounded-2xl p-6 border border-[#3A3A3E]">
+          <h2 className="text-2xl font-bold text-[#FF8E8E] mb-4">The Problem We Solve</h2>
+          <p className="text-[#E0E0E0] leading-relaxed">
+            College life is fragmented across dozens of groups, portals and notice boards. We consolidate everything - 
+            academics, hostels, events, marketplaces - into one seamless experience.
           </p>
         </div>
       </div>
 
-      {/* Why Choose CampusOrbit */}
-      <div className="bg-[#0F0F0F]/90 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
-        <h2 className="text-2xl font-bold text-[#FF5E5B] mb-6">Why Choose CampusOrbit?</h2>
-        <div className="space-y-4 text-[#CFCFCF]">
-          <div className="flex items-start gap-4">
-            <div className="w-2 h-2 bg-[#FF5E5B] rounded-full mt-2 flex-shrink-0"></div>
-            <p>Tired of juggling between scattered and outdated portals?</p>
-          </div>
-          <div className="flex items-start gap-4">
-            <div className="w-2 h-2 bg-[#FF5E5B] rounded-full mt-2 flex-shrink-0"></div>
-            <p>Struggling to find like-minded peers or relevant student communities?</p>
-          </div>
-          <div className="flex items-start gap-4">
-            <div className="w-2 h-2 bg-[#FF5E5B] rounded-full mt-2 flex-shrink-0"></div>
-            <p>Want to feel more at home on your campus?</p>
-          </div>
-        </div>
-        <p className="text-[#CFCFCF] mt-6">
-          CampusOrbit is your all-in-one solution - where technology meets student life.
+      {/* Meet the Team */}
+      <div className="bg-[#2A2A2E] rounded-2xl p-8 border border-[#3A3A3E]">
+        <h2 className="text-2xl font-bold text-[#FF8E8E] mb-4">The CampusOrbit Team</h2>
+        <p className="text-[#E0E0E0] mb-8">
+          A passionate group of SRM students who built what they wished existed. We eat, sleep, and breathe campus life:
         </p>
-      </div>
 
-      {/* Meet the Founders */}
-      <div className="bg-[#0F0F0F]/90 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
-        <h2 className="text-2xl font-bold text-[#FF5E5B] mb-4">Meet the Founders</h2>
-        <p className="text-[#CFCFCF] mb-8">
-          The passionate student team behind CampusOrbit - building for the community, by the community:
-        </p>
-        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {founders.map((founder, index) => (
-            <div key={index} className="bg-[#1A1A1A] rounded-lg p-4 text-center border border-gray-800 hover:border-gray-700 transition-all">
+            <div
+              key={index}
+              className="bg-[#1E1E22] rounded-xl p-4 text-center border border-[#3A3A3E] hover:border-[#FF8E8E]/40 transition-all duration-200 group"
+            >
               <img
-                src={founder.image}
+                src={founder.image || "/placeholder.svg"}
                 alt={founder.name}
-                className="w-20 h-20 rounded-full mx-auto mb-3 object-cover border-2 border-[#FF5E5B]/30"
+                className="w-20 h-20 rounded-full mx-auto mb-3 object-cover border-2 border-[#FF8E8E]/30 group-hover:border-[#FF8E8E]/50 transition-all"
               />
-              <h3 className="text-white font-bold text-lg">{founder.name}</h3>
-              <p className="text-[#808080] text-sm mb-3">{founder.role}</p>
-              <button 
-                onClick={() => window.open(founder.portfolio, '_blank')}
-                className="text-[#FF5E5B] hover:text-[#FF5E5B]/80 text-sm flex items-center justify-center gap-1 mx-auto transition-colors"
-              >
-                View Portfolio
-                <ExternalLink className="w-3 h-3" />
-              </button>
+              <h3 className="text-[#F4F4F5] font-bold text-lg">{founder.name}</h3>
+              <p className="text-[#D1D1D6] text-sm mb-3">{founder.role}</p>
+              
+              <div className="flex justify-center gap-3 mt-4">
+                <a href={founder.github} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors">
+                  <Github className="w-4 h-4" />
+                </a>
+                <a href={founder.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors">
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a href={founder.instagram} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors">
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a 
+                  href={founder.portfolio} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors flex items-center gap-1 text-xs"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       {/* FAQs */}
-      <div className="bg-[#0F0F0F]/90 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
-        <h2 className="text-2xl font-bold text-[#FF5E5B] mb-6">FAQs</h2>
+      <div className="bg-[#2A2A2E] rounded-2xl p-8 border border-[#3A3A3E]">
+        <h2 className="text-2xl font-bold text-[#FF8E8E] mb-6">FAQs</h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-[#1A1A1A] rounded-lg border border-gray-800 overflow-hidden">
+            <div key={index} className="bg-[#1E1E22] rounded-xl border border-[#3A3A3E] overflow-hidden">
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-[#1F1F1F] transition-colors"
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-[#2A2A2E] transition-colors"
               >
-                <h3 className="text-[#FF5E5B] font-medium text-lg">{faq.question}</h3>
+                <h3 className="text-[#FF8E8E] font-medium text-lg">{faq.question}</h3>
                 {openFAQ === index ? (
-                  <ChevronUp className="w-5 h-5 text-[#808080] flex-shrink-0" />
+                  <ChevronUp className="w-5 h-5 text-[#A1A1AA] flex-shrink-0" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-[#808080] flex-shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-[#A1A1AA] flex-shrink-0" />
                 )}
               </button>
               {openFAQ === index && (
                 <div className="px-6 pb-6">
-                  <p className="text-[#CFCFCF] leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#E0E0E0] leading-relaxed">{faq.answer}</p>
                 </div>
               )}
             </div>
@@ -177,7 +195,7 @@ const About = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About

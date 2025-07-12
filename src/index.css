@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@keyframes border-pulse {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(255, 107, 107, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px rgba(255, 107, 107, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px rgba(255, 107, 107, 0.7);
+  }
+}
+
+.animate-border-pulse {
+  animation: border-pulse 2s infinite alternate;
+}
+
+/* Subtle background animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.dashboard-bg {
+  background: linear-gradient(135deg, #0e0e10, #1a1a1d, #0e0e10);
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite alternate;
+}
+
+/* For the pulse animation on the Zap icon */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.marquee-container {
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-right: 100%; /* Ensure content goes off screen */
+  will-change: transform;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  display: inline-block;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
