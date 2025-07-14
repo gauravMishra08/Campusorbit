@@ -109,13 +109,7 @@ const Marketplace = () => {
       <div>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FF6B6B] mb-2">Marketplace</h1>
         <div className="space-y-2">
-          <p className="text-lg text-[#22C55E]">How It Works</p>
-          <div className="text-sm text-[#A1A1AA] space-y-1">
-            <p>1. Want to buy or sell something on campus?</p>
-            <p>2. Submit a form with item details.</p>
-            <p>3. We'll display it in the Marketplace list.</p>
-            <p>4. Buyer or seller gets contacted securely.</p>
-          </div>
+          <p className="text-lg text-[#22C55E]">Buy, sell, or trade campus essentials - books, gadgets, decor, and more.</p>
         </div>
       </div>
 
