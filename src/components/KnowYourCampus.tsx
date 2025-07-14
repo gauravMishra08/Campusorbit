@@ -26,7 +26,7 @@ const KnowYourCampus = () => {
     },
     {
       id: 3,
-      title: "University Building (Main Block)",
+      title: "University Building",
       description: "Home to admin offices, classrooms & placement cell.",
       image: "https://via.placeholder.com/400",
       category: "Academics",
@@ -42,7 +42,7 @@ const KnowYourCampus = () => {
     },
     {
       id: 5,
-      title: "Electrical & Electronics Block",
+      title: "EEE Block",
       description: "Labs & classrooms for EEE/ECE branches.",
       image: "https://via.placeholder.com/400",
       category: "Academics",
@@ -154,7 +154,7 @@ const KnowYourCampus = () => {
     },
     {
       id: 19,
-      title: "Durgaswamy Supermarket",
+      title: "Durgaswamy",
       description: "Groceries, snacks & daily essentials for hostelers.",
       image: "https://via.placeholder.com/400",
       category: "Essentials",
@@ -274,7 +274,7 @@ const KnowYourCampus = () => {
     },
     {
       id: 34,
-      title: "A2B (Adyar Ananda Bhavan)",
+      title: "A2B",
       description: "South Indian restaurant great for breakfast & sweets.",
       image: "https://via.placeholder.com/400",
       category: "Beyond Campus",
