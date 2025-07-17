@@ -85,38 +85,41 @@ const Dashboard = ({ setActiveSection }: DashboardProps) => {
 
   return (
     <div className="dashboard-bg rounded-xl">
-      {/* Moving Announcement Banner - Fixed within Dashboard */}
-      <div className="w-full sticky top-0 z-20 border-y border-[#2D2D30] py-2 bg-[#FF6B6f] backdrop-blur-m opacity-70">
-  <div className="h-10 flex items-center justify-center relative overflow-hidden">
-    <div className="marquee-container w-full whitespace-nowrap">
-      <div className="marquee-content inline-flex items-center text-white text-base font-medium animate-marquee">
-        🚀 Find My Roommate: Instantly connect with verified roommates using your room number! &nbsp;&nbsp;&nbsp; 
-        🍽️ What's in Mess: Real-time updates on daily/weekly menus across all meal slots! &nbsp;&nbsp;&nbsp; 
-        🎪 Events Hub: Discover fests, hackathons & workshops - RSVP with one click! &nbsp;&nbsp;&nbsp; 
-        📚 Resources: Semester-wise study materials & PYQs for all branches! &nbsp;&nbsp;&nbsp; 
-        🗺️ Know Your Campus: Interactive map with academic blocks, food joints & hidden gems! &nbsp;&nbsp;&nbsp; 
-        ⚡ QuickServe: Order food in advance & unlock exclusive offers! &nbsp;&nbsp;&nbsp; 
-        💰 Marketplace: Buy/sell campus essentials with verified student listings! &nbsp;&nbsp;&nbsp; 
-        🔍 Lost & Found: Community-powered item recovery system! &nbsp;&nbsp;&nbsp; 
-        🎉 Coming Soon: Game-changing features for smarter campus life!
+      {/* Improved Announcement Banner */}
+      <div className="w-full sticky top-0 z-20 border-y border-white/20 py-2 bg-gradient-to-r from-[#ff0844]/70 via-[#ff4565]/70 to-[#ff0844]/70 backdrop-blur-md">
+        <div className="h-10 flex items-center justify-center relative overflow-hidden">
+          <div className="marquee-container w-full whitespace-nowrap">
+            <div className="marquee-content inline-flex items-center text-white text-base font-medium animate-marquee [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+              Find My Roommate: Instantly connect with verified roommates using your room number! &nbsp;&nbsp;&nbsp; 
+              What's in Mess: Real-time updates on daily/weekly menus across all meal slots! &nbsp;&nbsp;&nbsp; 
+              Events Hub: Discover fests, hackathons & workshops - RSVP with one click! &nbsp;&nbsp;&nbsp; 
+              Resources: Semester-wise study materials & PYQs for all branches! &nbsp;&nbsp;&nbsp; 
+              Know Your Campus: Interactive map with academic blocks, food joints & hidden gems! &nbsp;&nbsp;&nbsp; 
+              QuickServe: Order food in advance & unlock exclusive offers! &nbsp;&nbsp;&nbsp; 
+              Marketplace: Buy/sell campus essentials with verified student listings! &nbsp;&nbsp;&nbsp; 
+              Lost & Found: Community-powered item recovery system! &nbsp;&nbsp;&nbsp; 
+              Coming Soon: Game-changing features for smarter campus life!
+            </div>
+            {/* Duplicate content for seamless looping */}
+            <div className="marquee-content inline-flex items-center text-white text-base font-medium animate-marquee [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+              Find My Roommate: Instantly connect with verified roommates using your room number! &nbsp;&nbsp;&nbsp; 
+              What's in Mess: Real-time updates on daily/weekly menus across all meal slots! &nbsp;&nbsp;&nbsp; 
+              Events Hub: Discover fests, hackathons & workshops - RSVP with one click! &nbsp;&nbsp;&nbsp; 
+              Resources: Semester-wise study materials & PYQs for all branches! &nbsp;&nbsp;&nbsp; 
+              Know Your Campus: Interactive map with academic blocks, food joints & hidden gems! &nbsp;&nbsp;&nbsp; 
+              QuickServe: Order food in advance & unlock exclusive offers! &nbsp;&nbsp;&nbsp; 
+              Marketplace: Buy/sell campus essentials with verified student listings! &nbsp;&nbsp;&nbsp; 
+              Lost & Found: Community-powered item recovery system! &nbsp;&nbsp;&nbsp; 
+              Coming Soon: Game-changing features for smarter campus life!
+            </div>
+          </div>
+          {/* Breaking news effect elements */}
+          <div className="absolute left-0 top-0 h-full w-8 bg-gradient-to-r from-black/30 to-transparent"></div>
+          <div className="absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-black/30 to-transparent"></div>
+          <div className="absolute inset-0 pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMNCA0Wk00IDBMMCA0WiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9IiMxMTExMTEiPjwvcGF0aD4KPC9zdmc+')] opacity-10"></div>
+        </div>
       </div>
-      {/* Duplicate content for seamless looping */}
-      <div className="marquee-content inline-flex items-center text-white text-base font-medium animate-marquee">
-        🚀 Find My Roommate: Instantly connect with verified roommates using your room number! &nbsp;&nbsp;&nbsp; 
-        🍽️ What's in Mess: Real-time updates on daily/weekly menus across all meal slots! &nbsp;&nbsp;&nbsp; 
-        🎪 Events Hub: Discover fests, hackathons & workshops - RSVP with one click! &nbsp;&nbsp;&nbsp; 
-        📚 Resources: Semester-wise study materials & PYQs for all branches! &nbsp;&nbsp;&nbsp; 
-        🗺️ Know Your Campus: Interactive map with academic blocks, food joints & hidden gems! &nbsp;&nbsp;&nbsp; 
-        ⚡ QuickServe: Order food in advance & unlock exclusive offers! &nbsp;&nbsp;&nbsp; 
-        💰 Marketplace: Buy/sell campus essentials with verified student listings! &nbsp;&nbsp;&nbsp; 
-        🔍 Lost & Found: Community-powered item recovery system! &nbsp;&nbsp;&nbsp; 
-        🎉 Coming Soon: Game-changing features for smarter campus life!
-      </div>
-    </div>
-  </div>
-</div>
 
-      {/* Features Grid - Scrolls below the fixed banner */}
       <div className="p-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => {

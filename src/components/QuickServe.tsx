@@ -7,7 +7,7 @@ const QuickServe = () => {
       id: 1,
       name: "MP Foods-Estancia",
       description: "Authentic biriyani and continental cuisine",
-      image: "",
+      image: "https://i.postimg.cc/VL1vxgfQ/MPFoods.jpg",
       phone: "+91 98765 43210",
       waitTime: "15 mins",
       menu: {
@@ -42,7 +42,7 @@ const QuickServe = () => {
       id: 2,
       name: "Google Food Park",
       description: "Authentic Indian delicacies",
-      image: "",
+      image: "https://i.postimg.cc/R0jVXQsY/pexels-photo-958545.jpg",
       phone: "+91 87654 32109",
       waitTime: "20 mins",
       menu: {
@@ -62,7 +62,7 @@ const QuickServe = () => {
       id: 3,
       name: "Godavari",
       description: "Spice of Andhra",
-      image: "",
+      image: "https://i.postimg.cc/k43qxMD3/godavari.jpg",
       phone: "+91 76543 21098",
       waitTime: "8 mins",
       menu: {
@@ -81,7 +81,7 @@ const QuickServe = () => {
       id: 4,
       name: "EverGreen",
       description: "Continental cuisine with local twist",
-      image: "",
+      image: "https://i.postimg.cc/5NN15R90/evergreen.png",
       phone: "+91 65432 10987",
       waitTime: "20 mins",
       menu: {
