@@ -86,7 +86,7 @@ const Dashboard = ({ setActiveSection }: DashboardProps) => {
   return (
     <div className="dashboard-bg rounded-xl">
       {/* Improved Announcement Banner */}
-      <div className="w-full sticky top-0 z-20 border-y border-white/20 py-2 bg-gradient-to-r from-[#ff0844]/70 via-[#ff4565]/70 to-[#ff0844]/70 backdrop-blur-md">
+      <div className="w-full sticky top-0 z-20 border-y border-white/20 py-2 bg-gradient-to-r backdrop-blur-md">
         <div className="h-10 flex items-center justify-center relative overflow-hidden">
           <div className="marquee-container w-full whitespace-nowrap">
             <div className="marquee-content inline-flex items-center text-white text-base font-medium animate-marquee [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
