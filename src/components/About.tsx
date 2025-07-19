@@ -68,7 +68,7 @@ const About = () => {
     {
       question: "How can I find my roommate before hostel check-in?",
       answer:
-        "Use the 'Find My Roommate' feature. Just search by your room number or register your details, and if your roommate has done the same, you’ll be able to connect.",
+        "Use the 'Find My Roommate' feature. Just search by your room number or register your details, and if your roommate has done the same, you'll be able to connect.",
     },
     {
       question: "Can I contribute to CampusOrbit's development?",
@@ -154,15 +154,15 @@ const About = () => {
                 <a href={founder.instagram} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors">
                   <Instagram className="w-4 h-4" />
                 </a>
-                <a 
-                  href={founder.portfolio} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors flex items-center gap-1 text-xs"
-                >
-                  <ExternalLink className="w-3 h-3" />
-                </a>
               </div>
+              <a 
+                href={founder.portfolio} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors flex items-center justify-center gap-1 text-xs mt-2"
+              >
+                View my portfolio
+              </a>
             </div>
           ))}
         </div>
