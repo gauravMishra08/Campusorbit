@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator for CampusOrbit PWA</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .icon-preview { margin: 10px; display: inline-block; }
+        canvas { border: 1px solid #ccc; margin: 5px; }
+        .download-all { margin: 20px 0; }
+        button { padding: 10px 20px; background: #FF6B6B; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #ff5252; }
+    </style>
+</head>
+<body>
+    <h1>CampusOrbit PWA Icon Generator</h1>
+    <p>This will generate all required PWA icons for your app.</p>
+    
+    <div class="download-all">
+        <button onclick="generateAllIcons()">Generate All Icons</button>
+    </div>
+    
+    <div id="icons-container"></div>
+
+    <script>
+        function generateIcon(size, text = 'CO') {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#FF6B6B');
+            gradient.addColorStop(1, '#FF8A80');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${size * 0.3}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(text, size / 2, size / 2);
+
+            // Border
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = size * 0.02;
+            ctx.strokeRect(0, 0, size, size);
+
+            return canvas;
+        }
+
+        function downloadCanvas(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        function generateAllIcons() {
+            const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+            const container = document.getElementById('icons-container');
+            container.innerHTML = '';
+
+            sizes.forEach(size => {
+                const canvas = generateIcon(size);
+                const div = document.createElement('div');
+                div.className = 'icon-preview';
+                div.innerHTML = `
+                    <h3>${size}x${size}</h3>
+                    <button onclick="downloadCanvas(this.nextElementSibling, 'icon-${size}x${size}.png')">Download</button>
+                `;
+                div.appendChild(canvas);
+                container.appendChild(div);
+            });
+        }
+
+        // Generate initial preview
+        generateAllIcons();
+    </script>
+</body>
+</html>
