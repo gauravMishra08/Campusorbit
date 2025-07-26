@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['astronaut.png', 'Gaurav.png', 'Rashmika.png', 'Saatvik.png', 'Utkarsh.png', 'resources.csv', 'favicon.svg'],
+      includeAssets: ['icon.png', 'icon-192x192.png', 'icon-512x512.png', 'astronaut.png', 'Gaurav.png', 'Rashmika.png', 'Saatvik.png', 'Utkarsh.png', 'resources.csv', 'favicon.svg'],
       manifest: {
         name: 'CampusOrbit Dashboard',
         short_name: 'CampusOrbit',
@@ -22,57 +22,19 @@ export default defineConfig({
         lang: 'en',
         icons: [
           {
-            src: '/icon-72x72.svg',
-            sizes: '72x72',
-            type: 'image/svg+xml',
-            purpose: 'maskable any'
-          },
-          {
-            src: '/icon-96x96.svg',
-            sizes: '96x96',
-            type: 'image/svg+xml',
-            purpose: 'maskable any'
-          },
-          {
-            src: '/icon-128x128.svg',
-            sizes: '128x128',
-            type: 'image/svg+xml',
-            purpose: 'maskable any'
-          },
-          {
-            src: '/icon-144x144.svg',
-            sizes: '144x144',
-            type: 'image/svg+xml',
-            purpose: 'maskable any'
-          },
-          {
-            src: '/icon-152x152.svg',
-            sizes: '152x152',
-            type: 'image/svg+xml',
-            purpose: 'maskable any'
-          },
-          {
-            src: '/icon-192x192.svg',
+            src: '/icon-192x192.png',
             sizes: '192x192',
-            type: 'image/svg+xml',
-            purpose: 'maskable any'
+            type: 'image/png'
           },
           {
-            src: '/icon-384x384.svg',
-            sizes: '384x384',
-            type: 'image/svg+xml',
-            purpose: 'maskable any'
-          },
-          {
-            src: '/icon-512x512.svg',
+            src: '/icon-512x512.png',
             sizes: '512x512',
-            type: 'image/svg+xml',
-            purpose: 'maskable any'
+            type: 'image/png'
           }
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,svg,csv}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,csv}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB
         runtimeCaching: [
           {
