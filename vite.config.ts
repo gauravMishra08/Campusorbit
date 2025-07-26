@@ -11,7 +11,7 @@ export default defineConfig({
       manifest: {
         name: 'CampusOrbit Dashboard',
         short_name: 'CampusOrbit',
-        description: 'Your all-in-one campus companion for roommates, events, marketplace, and more',
+        description: 'Your all-in-one campus companion for resources, mess menus, events and more',
         theme_color: '#FF6B6B',
         background_color: '#ffffff',
         display: 'standalone',

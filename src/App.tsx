@@ -6,11 +6,8 @@ import Sidebar from "./components/Sidebar"
 import KnowYourCampus from "./components/KnowYourCampus"
 import WhatsInMess from "./components/WhatsInMess"
 import Resources from "./components/Resources"
-import FindRoommate from "./components/FindRoommate"
 import EventsHub from "./components/EventsHub"
 import QuickServe from "./components/QuickServe"
-import Marketplace from "./components/Marketplace"
-import LostFound from "./components/LostFound"
 import About from "./components/About"
 import Feedback from "./components/Feedback"
 import Dashboard from "./components/Dashboard" // Import the new Dashboard component
@@ -36,8 +33,6 @@ function App() {
     switch (activeSection) {
       case "dashboard-home":
         return <Dashboard setActiveSection={setActiveSection} /> // Pass setActiveSection to Dashboard
-      case "find-roommate":
-        return <FindRoommate />
       case "whats-in-mess":
         return <WhatsInMess />
       case "events-hub":
@@ -48,10 +43,6 @@ function App() {
         return <KnowYourCampus />
       case "quickserve":
         return <QuickServe />
-      case "marketplace":
-        return <Marketplace />
-      case "lost-found":
-        return <LostFound />
       case "about":
         return <About />
       case "feedback":

@@ -10,14 +10,12 @@ interface SidebarProps {
 
 const Sidebar = ({ activeSection, setActiveSection, sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const menuItems = [
-    { id: "find-roommate", label: "Find My Roommate", icon: Users, color: "#3B82F6" },
-    { id: "whats-in-mess", label: "What's in Mess", icon: UtensilsCrossed, color: "#22C55E" },
-    { id: "events-hub", label: "Events Hub", icon: Calendar, color: "#FF6B6B" },
+
     { id: "resources", label: "Resources", icon: BookOpen, color: "#3B82F6" },
-    { id: "know-your-campus", label: "Know Your Campus", icon: Map, color: "#22C55E" },
+    { id: "whats-in-mess", label: "What's in Mess", icon: UtensilsCrossed, color: "#22C55E" },
     { id: "quickserve", label: "QuickServe", icon: Zap, color: "#FF6B6B" },
-    { id: "marketplace", label: "Marketplace", icon: ShoppingBag, color: "#3B82F6" },
-    { id: "lost-found", label: "Lost & Found", icon: Search, color: "#EF4444" },
+    { id: "events-hub", label: "Events Hub", icon: Calendar, color: "#FF6B6B" },
+    { id: "know-your-campus", label: "Know Your Campus", icon: Map, color: "#22C55E" },
     { id: "join-community", label: "Join Community", icon: UserPlus, color: "#22C55E" },
   ]
 

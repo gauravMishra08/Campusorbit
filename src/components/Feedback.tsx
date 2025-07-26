@@ -7,22 +7,22 @@ const Feedback = () => {
     {
       icon: Bug,
       title: "Report an Issue",
-      description: "Found problems with roommate matching, mess menus, or other features?"
+      description: "Having trouble with Resources, Mess Menus, QuickServe, Events Hub, or Know Your Campus? Tell us!"
     },
     {
       icon: LayoutPanelTop,
       title: "UI/UX Suggestions",
-      description: "Ideas to improve the interface or user experience"
+      description: "Got ideas to improve how you browse resources, order food, or explore campus info?"
     },
     {
       icon: Lightbulb,
       title: "Feature Requests",
-      description: "Suggest new tools for hostel life or academics"
+      description: "Want new features or enhancements? Let us know what you'd like to see next."
     },
     {
       icon: MessageSquare,
       title: "General Feedback",
-      description: "Share your experience using CampusOrbit"
+      description: "Share your overall experience or thoughts about using CampusOrbit."
     }
   ]
 
@@ -64,12 +64,10 @@ const Feedback = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-[#FF6B6B] mb-6">Help Improve CampusOrbit</h1>
         <div className="space-y-4 text-[#E0E0E0] leading-relaxed">
           <p className="text-lg">
-            Your suggestions shape CampusOrbit's development. We're building this platform for SRM students, 
-            with your input guiding every update.
+            CampusOrbit combines essential campus tools all in one place - from accessing semester-wise study materials and real-time mess menus, to ordering food with QuickServe, discovering events, and exploring your campus like a pro.
           </p>
           <p>
-            Notice any bugs? Have ideas for new features? Want to suggest improvements? 
-            Reach out through any channel below.
+          If you find bugs, have suggestions, or want new features, your feedback helps us make CampusOrbit better for everyone.
           </p>
         </div>
       </div>

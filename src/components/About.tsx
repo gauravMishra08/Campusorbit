@@ -58,27 +58,22 @@ const About = () => {
     {
       question: "What exactly is CampusOrbit?",
       answer:
-        "CampusOrbit is your all-in-one campus companion app that connects all aspects of college life - from academics and hostel living to events and marketplaces. Think of it as your digital campus ecosystem built by students, for students.",
+      "CampusOrbit is your all-in-one student life companion. From academics and hostel updates to events and food - it's a unified platform built by SRM students, for SRM students.",
     },
     {
       question: "How is this different from our college portal?",
       answer:
-        "Unlike official portals that focus on academics, CampusOrbit integrates everything - find roommates, check mess menus, buy/sell items, discover events, and more. It's designed around actual student needs with a modern, user-friendly interface.",
-    },
-    {
-      question: "How can I find my roommate before hostel check-in?",
-      answer:
-        "Use the 'Find My Roommate' feature. Just search by your room number or register your details, and if your roommate has done the same, you'll be able to connect.",
+        "Unlike official portals that focus on academics, CampusOrbit brings together mess menus, events, notes, resources, and more - all designed around real student needs with a modern UI.",
     },
     {
       question: "Can I contribute to CampusOrbit's development?",
       answer:
-        "Yes! We're open to collaborations. Reach out to us directly for opportunities.",
+      "Absolutely! We're open to collaborations, contributions, and cool ideas. Just reach out to us directly - we’d love to connect.",
     },
     {
       question: "Will this work for all SRM campuses?",
       answer: 
-      "Currently optimized for SRM KTR, but we're expanding to other SRM campuses soon. Stay tuned for updates!",
+"Right now, it’s optimized for SRM KTR. But yes, we’re working to expand it across all SRM campuses very soon.",
     },
   ]
 
@@ -93,13 +88,9 @@ const About = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-[#FF6B6B] mb-6">About CampusOrbit</h1>
         <div className="space-y-4 text-[#E0E0E0] leading-relaxed">
           <p className="text-lg">
-            Born from late-night hostel discussions and countless "there should be an app for this" moments, CampusOrbit is 
-            revolutionizing how SRM students navigate college life. We've combined essential services into one 
-            intuitive platform.
-          </p>
-          <p>
-            From finding your roommate before move-in day to selling your textbooks after exams - we've got every 
-            campus life scenario covered.
+            CampusOrbit was born out of late-night hostel chats and those “why isn’t there an app for this?” moments. 
+    It’s our answer to the everyday chaos of college life - combining academics, food, events, and more into one 
+    seamless, student-first platform built at SRM, for SRM.
           </p>
         </div>
       </div>
@@ -109,16 +100,16 @@ const About = () => {
         <div className="bg-[#2A2A2E] rounded-2xl p-6 border border-[#3A3A3E]">
           <h2 className="text-2xl font-bold text-[#FF8E8E] mb-4">Our Vision</h2>
           <p className="text-[#E0E0E0] leading-relaxed">
-            To create a self-sustaining digital ecosystem where every SRM student can thrive academically, socially, 
-            and personally through technology that understands campus life.
+            To build a digital ecosystem where every SRM student can thrive - academically, socially, and beyond. 
+            CampusOrbit isn't just tech; it’s a reflection of real campus life, built to make student life simpler, smarter, and more connected.
           </p>
         </div>
 
         <div className="bg-[#2A2A2E] rounded-2xl p-6 border border-[#3A3A3E]">
           <h2 className="text-2xl font-bold text-[#FF8E8E] mb-4">The Problem We Solve</h2>
           <p className="text-[#E0E0E0] leading-relaxed">
-            College life is fragmented across dozens of groups, portals and notice boards. We consolidate everything - 
-            academics, hostels, events, marketplaces - into one seamless experience.
+            Campus life is scattered - notes in one group, mess menu in another, event updates somewhere else. 
+  We bring it all together in one clean, easy-to-use space - from academics and hostels to food, events, and more.
           </p>
         </div>
       </div>

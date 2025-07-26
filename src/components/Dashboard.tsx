@@ -8,30 +8,7 @@ interface DashboardProps {
 
 const Dashboard = ({ setActiveSection }: DashboardProps) => {
   const features = [
-    {
-      id: "find-roommate",
-      icon: Users,
-      title: "Find My Roommate",
-      description: "Search by room number or register in seconds to instantly find and connect with your verified roommates.",
-      buttonText: "Find Roommate",
-      color: "bg-[#3B82F6]",
-    },
-    {
-      id: "whats-in-mess",
-      icon: UtensilsCrossed,
-      title: "What's in Mess",
-      description: "From Idli-Sambhar mornings to Pani Poori snack breaks, get real-time updates straight from your mess.",
-      buttonText: "View Menu",
-      color: "bg-[#22C55E]",
-    },
-    {
-      id: "events-hub",
-      icon: Calendar,
-      title: "Events Hub",
-      description: "Discover upcoming fests, hackathons, club activities, and workshops. RSVP, share, and set reminders - all from one place.",
-      buttonText: "Explore Events",
-      color: "bg-[#FF6B6B]",
-    },
+
     {
       id: "resources",
       icon: BookOpen,
@@ -40,13 +17,13 @@ const Dashboard = ({ setActiveSection }: DashboardProps) => {
       buttonText: "Access Resources",
       color: "bg-[#3B82F6]",
     },
+
     {
-      id: "know-your-campus",
-      icon: Map,
-      title: "Know Your Campus",
-      description:
-        "Explore your college like a pro. From academic blocks and food joints to hidden gems and nearby essentials.",
-      buttonText: "Explore Campus",
+      id: "whats-in-mess",
+      icon: UtensilsCrossed,
+      title: "What's in Mess",
+      description: "From Idli-Sambhar mornings to Pani Poori snack breaks, get real-time updates straight from your mess.",
+      buttonText: "View Menu",
       color: "bg-[#22C55E]",
     },
     {
@@ -58,19 +35,21 @@ const Dashboard = ({ setActiveSection }: DashboardProps) => {
       color: "bg-[#FF6B6B]",
     },
     {
-      id: "marketplace",
-      icon: ShoppingBag,
-      title: "Marketplace",
-      description: "Buy, sell, or trade campus essentials - books, gadgets, decor, and more. Verified student listings ensure a safe, smooth exchange.",
-      buttonText: "Browse Marketplace",
-      color: "bg-[#3B82F6]",
+      id: "events-hub",
+      icon: Calendar,
+      title: "Events Hub",
+      description: "Discover upcoming fests, hackathons, club activities, and workshops. RSVP, share, and set reminders - all from one place.",
+      buttonText: "Explore Events",
+      color: "bg-[#FF6B6B]",
     },
+
     {
-      id: "lost-found",
-      icon: Search,
-      title: "Lost & Found",
-      description: "Lost something on campus? Report, track, or help others reclaim their items. Community-powered recovery made simple.",
-      buttonText: "View Lost & Found",
+      id: "know-your-campus",
+      icon: Map,
+      title: "Know Your Campus",
+      description:
+        "Explore your college like a pro. From academic blocks and food joints to hidden gems and nearby essentials.",
+      buttonText: "Explore Campus",
       color: "bg-[#22C55E]",
     },
     {
@@ -90,26 +69,20 @@ const Dashboard = ({ setActiveSection }: DashboardProps) => {
         <div className="h-10 flex items-center justify-center relative overflow-hidden">
           <div className="marquee-container w-full whitespace-nowrap">
             <div className="marquee-content inline-flex items-center text-white text-base font-medium animate-marquee [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
-              Find My Roommate: Instantly connect with verified roommates using your room number! &nbsp;&nbsp;&nbsp; 
-              What's in Mess: Real-time updates on daily/weekly menus across all meal slots! &nbsp;&nbsp;&nbsp; 
-              Events Hub: Discover fests, hackathons & workshops - RSVP with one click! &nbsp;&nbsp;&nbsp; 
               Resources: Semester-wise study materials & PYQs for all branches! &nbsp;&nbsp;&nbsp; 
-              Know Your Campus: Interactive map with academic blocks, food joints & hidden gems! &nbsp;&nbsp;&nbsp; 
+              What's in Mess: Real-time updates on daily/weekly menus across all meal slots! &nbsp;&nbsp;&nbsp;
               QuickServe: Order food in advance & unlock exclusive offers! &nbsp;&nbsp;&nbsp; 
-              Marketplace: Buy/sell campus essentials with verified student listings! &nbsp;&nbsp;&nbsp; 
-              Lost & Found: Community-powered item recovery system! &nbsp;&nbsp;&nbsp; 
+              Events Hub: Discover fests, hackathons & workshops - RSVP with one click! &nbsp;&nbsp;&nbsp;      
+              Know Your Campus: Interactive map with academic blocks, food joints & hidden gems! &nbsp;&nbsp;&nbsp; 
               Coming Soon: Game-changing features for smarter campus life!
             </div>
             {/* Duplicate content for seamless looping */}
             <div className="marquee-content inline-flex items-center text-white text-base font-medium animate-marquee [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
-              Find My Roommate: Instantly connect with verified roommates using your room number! &nbsp;&nbsp;&nbsp; 
-              What's in Mess: Real-time updates on daily/weekly menus across all meal slots! &nbsp;&nbsp;&nbsp; 
-              Events Hub: Discover fests, hackathons & workshops - RSVP with one click! &nbsp;&nbsp;&nbsp; 
               Resources: Semester-wise study materials & PYQs for all branches! &nbsp;&nbsp;&nbsp; 
-              Know Your Campus: Interactive map with academic blocks, food joints & hidden gems! &nbsp;&nbsp;&nbsp; 
+              What's in Mess: Real-time updates on daily/weekly menus across all meal slots! &nbsp;&nbsp;&nbsp;
               QuickServe: Order food in advance & unlock exclusive offers! &nbsp;&nbsp;&nbsp; 
-              Marketplace: Buy/sell campus essentials with verified student listings! &nbsp;&nbsp;&nbsp; 
-              Lost & Found: Community-powered item recovery system! &nbsp;&nbsp;&nbsp; 
+              Events Hub: Discover fests, hackathons & workshops - RSVP with one click! &nbsp;&nbsp;&nbsp;      
+              Know Your Campus: Interactive map with academic blocks, food joints & hidden gems! &nbsp;&nbsp;&nbsp; 
               Coming Soon: Game-changing features for smarter campus life!
             </div>
           </div>
