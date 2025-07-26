@@ -40,7 +40,7 @@ const Dashboard = ({ setActiveSection }: DashboardProps) => {
       title: "Events Hub",
       description: "Discover upcoming fests, hackathons, club activities, and workshops. RSVP, share, and set reminders - all from one place.",
       buttonText: "Explore Events",
-      color: "bg-[#FF6B6B]",
+      color: "bg-[#3B82F6]",
     },
 
     {

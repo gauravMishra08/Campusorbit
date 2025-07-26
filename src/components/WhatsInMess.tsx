@@ -138,20 +138,23 @@ const WhatsInMess = () => {
   const mBlockMenuData = {
     Monday: {
       breakfast: [
-        "Bread", "Butter", "Jam", "Pongal", "Sambar", "Coconut Chutney", "Vada",
-        "Chappathi", "Soya Aloo Kasha", "Tea/Coffee/Milk", "Banana"
+        "Bread", "Butter", "Jam", "Pongal", "Sambar", "Coconut Chutney",
+        "Vada", "Chappathi", "Soya Aloo Kasha", "Tea/Coffee/Milk", "Banana"
       ],
       lunch: [
         "Mint Chappathi", "Black Channa Masala", "Mutter Pulao", "Dal Makhni",
-        "Steamed Rice", "Sambar", "Keerai Koothu", "Rasam", "Butter milk", "Frymes", "Pickle"
+        "Steamed Rice", "Arachivitta Sambar", "Keerai Kootu", "Rasam",
+        "Butter Milk", "Frymes", "Pickle"
       ],
-      snacks: ["Samosa / Veg Spring Roll", "Tea / Lemon Juice / Milk", "Bread/Butter/Jam"],
+      snacks: [
+        "Samosa / Veg Spring Roll", "Tea / Lemon Juice / Milk", "Bread/Butter/Jam"
+      ],
       dinner: [
-        "Chappathi", "Tomato Dal", "Idli", "Chutney", "Sambar", "Idli podi", "Oil",
+        "Chappathi", "Tomato Dal", "Idli", "Chutney", "Sambar", "Idli Podi", "Oil",
         "Steamed Rice", "Rasam", "Buttermilk", "Pickle", "Salad", "Milk", "Fish Gravy"
       ]
     },
-    
+  
     Tuesday: {
       breakfast: [
         "Bread", "Butter", "Jam", "Poori", "Aloo Masala", "Veg Rava Kitchadi",
@@ -159,15 +162,19 @@ const WhatsInMess = () => {
       ],
       lunch: [
         "Payasam", "Chappathi", "White Peas Curry", "Jeera Pulao", "Dal Fry",
-        "Steamed Rice", "Kara Kuzhambu","Rasam", "Cabbage Koothu", "Butter Milk", "Frymes", "Pickle"
+        "Steamed Rice", "Kara Kuzhambu", "Rasam", "Cabbage Kootu",
+        "Butter Milk", "Frymes", "Pickle"
       ],
-      snacks: ["Pani Pori / Pav Bhaji", "Tea / Coffee / Milk", "Bread/Butter/Jam"],
+      snacks: [
+        "Pani Pori / Pav Bhaji", "Tea / Coffee / Milk", "Bread/Butter/Jam"
+      ],
       dinner: [
         "Millet Chappathi", "Black Channa Masala", "Dosa", "Sambar", "Chutney",
-        "Idli Podi", "Oil", "Steamed Rice", "Rasam", "Buttermilk", "Salad", "Pickle", "Milk", "Mutton Kulambu"
+        "Idli Podi", "Oil", "Steamed Rice", "Rasam", "Buttermilk", "Salad",
+        "Pickle", "Milk", "Mutton Kulambu"
       ]
     },
-    
+  
     Wednesday: {
       breakfast: [
         "Bread", "Butter", "Jam", "Idiyappam", "Vada Curry / Veg Stew", "Mint Chutney",
@@ -177,13 +184,15 @@ const WhatsInMess = () => {
         "Chappathi", "Rajma Masala", "Variety Rice", "Curd Rice", "Urulai Kara Masala",
         "Steamed Rice", "Rasam", "Appalam", "Pickle"
       ],
-      snacks: ["Bakery Snacks", "Tea / Coffee / Milk", "Bread/Butter/Jam"],
+      snacks: [
+        "Bakery Snacks", "Tea / Coffee / Milk", "Bread/Butter/Jam"
+      ],
       dinner: [
-        "Chappathi", "Paneer Butter Masala", "Steamed Rice", "Sambar", "Jeera Rasam","Butter Milk",
-        "Pickle", "Milk", "*Non-Veg (Chicken Gravy / Chicken Biryani)"
+        "Chappathi", "Paneer Butter Masala", "Steamed Rice", "Sambar", "Jeera Rasam",
+        "Butter Milk", "Pickle", "Milk", "Non Veg (Chicken Gravy / Chicken Biryani)"
       ]
     },
-    
+  
     Thursday: {
       breakfast: [
         "Bread", "Butter", "Jam", "Idli", "Groundnut Chutney", "Sambar",
@@ -191,32 +200,38 @@ const WhatsInMess = () => {
       ],
       lunch: [
         "Sweet Pongal / Boondhi", "Beetroot Chappathi", "Gobi Capsicum",
-        "Dal Fry", "Veg Pulao", "Steamed Rice", "Karakozhambu", "Keerai Koothu",
-        "Rasam", "Buttermilk", "Frymes"
+        "Dal Fry", "Veg Pulao", "Steamed Rice", "Karakozhambu", "Keerai Kootu",
+        "Rasam", "Buttermilk", "Frymes", "Pickle"
       ],
-      snacks: ["Navadhaniyam Sundal", "Tea / Coffee / Milk", "Bread/Butter/Jam"],
+      snacks: [
+        "Navadhaniyam Sundal", "Tea / Coffee / Milk", "Bread/Butter/Jam"
+      ],
       dinner: [
         "Chole Poori", "Channa Masala", "Dosa", "Sambar", "Chutney",
-        "Steamed Rice", "Rasam", "Buttermilk", "Onion Salad", "Pickle", "Milk", "*Cup Ice Cream", "*Chicken Gravy"
+        "Steamed Rice", "Rasam", "Buttermilk", "Onion Salad", "Pickle", "Milk",
+        "Cup Ice Cream", "Chicken Gravy"
       ]
     },
-    
+  
     Friday: {
       breakfast: [
-        "Bread", "Butter", "Jam", "Chappathi", "Channa Dal", "Kal Dosa", "Sambar", "Chutney",
-        "Omelette", "Tea/Coffee/Milk", "Seasonal Fruit", "Idli Podi", "Oil"
+        "Bread", "Butter", "Jam", "Chappathi", "Channa Dal", "Kal Dosa", "Sambar",
+        "Chutney", "Omelette", "Tea/Coffee/Milk", "Banana", "Idli Podi", "Oil"
       ],
       lunch: [
-        "Chappathi", "Dal Tadka", "Peas Pulao", "Spinach Aloo", "Steamed Rice", "Sambar",
-        "Mix Veg Poriyal", "Rasam", "Buttermilk", "Frymes", "Pickle"
+        "Chappathi", "Dal Tadka", "Peas Pulao", "Spinach Aloo", "Steamed Rice",
+        "Sambar", "Mix Veg Poriyal", "Rasam", "Buttermilk", "Frymes", "Pickle"
       ],
-      snacks: ["Bajji / Mysore Bonda", "Chutney", "Tea/ Rose Milk / Milk", "Bread/Butter/Jam"],
+      snacks: [
+        "Bajji / Mysore Bonda", "Chutney", "Tea / Rose Milk / Milk", "Bread/Butter/Jam"
+      ],
       dinner: [
-        "Veg Soup", "Chappathi", "Veg Manchurian Gravy", "Fried Rice / Noodles", "Dal Fry",
-        "Steamed Rice", "Rasam", "Buttermilk", "Milk", "Salad", "Pickle", "*Chicken Gravy"
+        "Veg Soup", "Chappathi", "Veg Manchurian Gravy", "Fried Rice / Noodles",
+        "Dal Fry", "Steamed Rice", "Rasam", "Buttermilk", "Milk", "Salad", "Pickle",
+        "Chicken Gravy"
       ]
     },
-    
+  
     Saturday: {
       breakfast: [
         "Bread", "Butter", "Jam", "Aloo Paratha", "Curd", "Idli", "Sambar",
@@ -224,15 +239,17 @@ const WhatsInMess = () => {
       ],
       lunch: [
         "Gulab Jamun / Millet Payasam", "Chappathi", "Meal Maker Curry", "Veg Biryani",
-        "Raitha", "Curd Rice", "Steamed Rice", "Rasam", "Keerai Koothu", "Frymes", "Pickle"
+        "Raitha", "Curd Rice", "Steamed Rice", "Rasam", "Keerai Kootu", "Frymes", "Pickle"
       ],
-      snacks: ["Cake Variety", "Tea / Coffee / Milk", "Bread/Butter/Jam"],
+      snacks: [
+        "Cake Variety", "Tea / Coffee / Milk", "Bread/Butter/Jam"
+      ],
       dinner: [
         "Paratha", "Veg Salna", "Dosa", "Chutney", "Tiffin Sambar", "Idli Podi", "Oil",
-        "Steamed Rice", "Rasam", "Buttermilk", "Milk", "Salad", "Pickle", "*Mutton Gravy"
+        "Steamed Rice", "Rasam", "Buttermilk", "Milk", "Salad", "Pickle", "Mutton Gravy"
       ]
     },
-    
+  
     Sunday: {
       breakfast: [
         "Bread", "Butter", "Jam", "Chole Bhature", "Chenna Masala", "Rava Upma",
@@ -242,13 +259,16 @@ const WhatsInMess = () => {
         "Chappathi", "Chicken Gravy / Paneer Mutter Masala", "Steamed Rice", "Sambar",
         "Garlic Rasam", "Poriyal", "Buttermilk", "Frymes", "Pickle"
       ],
-      snacks: ["Peanut Sundal / Channa Sundal", "Tea / Coffee / Milk", "Bread/Butter/Jam"],
+      snacks: [
+        "Peanut Sundal / Channa Sundal", "Tea / Coffee / Milk", "Bread/Butter/Jam"
+      ],
       dinner: [
-        "Chappathi", "Mix Veg Curry", "Dal Fry", "Chicken Gravy", "Steamed Rice","Kadamba Sambar",
-        "Rasam", "Poriyal", "Buttermilk", "Milk", "Salad", "Pickle", "*Cone Ice Cream"
+        "Chappathi", "Mix Veg Curry", "Dal Fry", "Chicken Gravy", "Steamed Rice",
+        "Kadamba Sambar", "Rasam", "Poriyal", "Buttermilk", "Milk", "Salad", "Pickle",
+        "Cone Ice Cream"
       ]
     }
-  }
+  };  
 
   const currentMessData = activeMess === "Sannasi" ? sannasiMenuData : mBlockMenuData
   const currentMenu = currentMessData[activeDay] || currentMessData.Monday
