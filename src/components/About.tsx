@@ -18,7 +18,7 @@ const About = () => {
     },
     {
       name: "Gaurav Mishra",
-      role: "Designer & Developer",
+      role: "Full-Stack Designer",
       image: "Gaurav.png",
       portfolio: "https://gauravmishra08.vercel.app/",
       github: "https://github.com/gauravMishra08",
@@ -35,23 +35,24 @@ const About = () => {
       instagram: "https://www.instagram.com/its_karshj/"
     },
     {
-      name: "Saatvik Shashank",
-      role: "Developer",
-      image: "Saatvik.png",
-      portfolio: "https://saatvikss-teal.vercel.app/",
-      github: "https://github.com/SaatvikSS",
-      linkedin: "https://www.linkedin.com/in/saatvikss/",
-      instagram: "https://www.instagram.com/saatvik_ss/"
-    },
-    {
       name: "Rashmika Das",
-      role: "Developer",
+      role: "Contributor",
       image: "Rashmika.png",
       portfolio: "https://rashmika-portfolio-eight.vercel.app/",
       github: "https://github.com/SillyLlam",
       linkedin: "https://www.linkedin.com/in/rashmika-das-82a08b2b6/",
       instagram: "https://www.instagram.com/rashmiikka/"
     },
+    {
+      name: "Saatvik Shashank",
+      role: "Contributor",
+      image: "Saatvik.png",
+      portfolio: "https://saatvikss-teal.vercel.app/",
+      github: "https://github.com/SaatvikSS",
+      linkedin: "https://www.linkedin.com/in/saatvikss/",
+      instagram: "https://www.instagram.com/saatvik_ss/"
+    },
+
   ]
 
   const faqs = [
@@ -124,36 +125,37 @@ const About = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {founders.map((founder, index) => (
             <div
-              key={index}
-              className="bg-[#1E1E22] rounded-xl p-4 text-center border border-[#3A3A3E] hover:border-[#FF8E8E]/40 transition-all duration-200 group"
-            >
-              <img
-                src={founder.image || "/placeholder.svg"}
-                alt={founder.name}
-                className="w-20 h-20 rounded-full mx-auto mb-3 object-cover border-2 border-[#FF8E8E]/30 group-hover:border-[#FF8E8E]/50 transition-all"
-              />
-              <h3 className="text-[#F4F4F5] font-bold text-lg">{founder.name}</h3>
-              <p className="text-[#D1D1D6] text-sm mb-3">{founder.role}</p>
-              
-              <div className="flex justify-center gap-3 mt-4">
-                <a href={founder.github} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors">
-                  <Github className="w-4 h-4" />
-                </a>
-                <a href={founder.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors">
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a href={founder.instagram} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors">
-                  <Instagram className="w-4 h-4" />
-                </a>
-              </div>
-              <a 
-                href={founder.portfolio} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors flex items-center justify-center gap-1 text-xs mt-2"
-              >
-                View my portfolio
+            key={index}
+            className="bg-[#1E1E22] rounded-xl p-4 text-center border border-[#3A3A3E] hover:border-[#FF8E8E]/40 transition-all duration-200 group"
+          >
+            <img
+              src={founder.image || "/placeholder.svg"}
+              alt={founder.name}
+              className="w-20 h-20 rounded-full mx-auto mb-3 object-cover border-2 border-[#FF8E8E]/30 group-hover:border-[#FF8E8E]/50 transition-all"
+            />
+            <h3 className="text-[#F4F4F5] font-bold text-lg">{founder.name}</h3>
+            <p className="text-[#D1D1D6] text-sm mb-3">{founder.role}</p>
+            
+            <div className="flex justify-center gap-3 mt-4">
+              <a href={founder.github} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors">
+                <Github className="w-4 h-4" />
               </a>
+              <a href={founder.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors">
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a href={founder.instagram} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-[#FF8E8E] transition-colors">
+                <Instagram className="w-4 h-4" />
+              </a>
+            </div>
+              <a 
+    href={founder.portfolio} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="w-full bg-[#FF6B6B] hover:bg-[#EF4444] text-white py-2 px-4 rounded-lg text-sm font-medium transition-all duration-200 shadow-lg hover:shadow-md mt-3 transform hover:scale-[1.02] flex items-center justify-center gap-1"
+  >
+    View Portfolio
+    <ExternalLink className="w-4 h-4" />
+  </a>
             </div>
           ))}
         </div>
