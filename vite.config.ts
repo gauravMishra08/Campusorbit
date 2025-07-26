@@ -13,7 +13,7 @@ export default defineConfig({
         short_name: 'CampusOrbit',
         description: 'Your all-in-one campus companion for resources, mess menus, events and more',
         theme_color: '#FF6B6B',
-        background_color: '#ffffff',
+        background_color: '#0000',
         display: 'standalone',
         orientation: 'portrait',
         scope: '/',
