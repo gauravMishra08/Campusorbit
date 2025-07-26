@@ -11,7 +11,6 @@ import QuickServe from "./components/QuickServe"
 import About from "./components/About"
 import Feedback from "./components/Feedback"
 import Dashboard from "./components/Dashboard" // Import the new Dashboard component
-import PWAInstallPrompt from "./components/PWAInstallPrompt"
 
 function App() {
   const [activeSection, setActiveSection] = useState("dashboard-home") // Set default to dashboard-home
@@ -73,9 +72,6 @@ function App() {
           <div className="p-2 sm:p-4 lg:p-6 h-full flex flex-col">{renderContent()}</div>
         </main>
       </div>
-      
-      {/* PWA Install Prompt */}
-      <PWAInstallPrompt />
     </div>
   )
 }
