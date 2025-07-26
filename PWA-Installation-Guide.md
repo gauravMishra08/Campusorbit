@@ -67,7 +67,7 @@ After fixing the issues, your PWA should now have:
 
 ## 🔧 Current Configuration
 
-- **App Name**: CampusOrbit Dashboard
+- **App Name**: CampusOrbit
 - **Theme Color**: #FF6B6B (red gradient)
 - **Display Mode**: Standalone (fullscreen)
 - **Start URL**: / (home page)
