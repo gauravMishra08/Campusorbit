@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, X, Smartphone } from 'lucide-react';
+import { Download, X, Smartphone, Zap } from 'lucide-react';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
@@ -124,46 +124,53 @@ const PWAInstallPrompt: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4 z-50">
-      <div className="flex items-start justify-between mb-2">
-        <div className="flex items-center">
-          {shouldShowPrompt ? (
-            <Download className="h-5 w-5 text-blue-600 mr-2" />
-          ) : (
-            <Smartphone className="h-5 w-5 text-blue-600 mr-2" />
-          )}
-          <h3 className="font-semibold text-gray-900 dark:text-white">
-            {shouldShowPrompt ? 'Install CampusOrbit' : 'Add to Device'}
-          </h3>
+    <div className="fixed bottom-6 right-6 w-80 bg-[#2A2A2E] rounded-xl p-4 border border-[#2D2D30] shadow-xl z-50 animate-fade-in-up">
+      <div className="group relative overflow-hidden">
+        {/* Animated Background on Hover */}
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#FF6B6B]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+        <div className="flex items-start justify-between mb-3 relative z-10">
+          <div className="flex items-center">
+            <div className={`w-10 h-10 ${shouldShowPrompt ? 'bg-[#3B82F6]' : 'bg-[#FF6B6B]'} rounded-lg flex items-center justify-center shadow-md mr-3`}>
+              {shouldShowPrompt ? (
+                <Download className="h-5 w-5 text-white" />
+              ) : (
+                <Zap className="h-5 w-5 text-white" />
+              )}
+            </div>
+            <h3 className="font-bold text-[#F4F4F5]">
+              {shouldShowPrompt ? 'Install CampusOrbit' : 'Add to Home Screen'}
+            </h3>
+          </div>
+          <button
+            onClick={handleDismiss}
+            className="text-[#A1A1AA] hover:text-[#F4F4F5] transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </button>
         </div>
-        <button
-          onClick={handleDismiss}
-          className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-        >
-          <X className="h-4 w-4" />
-        </button>
-      </div>
-      
-      <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
-        {shouldShowPrompt 
-          ? 'Install CampusOrbit on your device for quick access and offline functionality.'
-          : 'Add CampusOrbit to your home screen for easy access. Use your browser\'s install option.'
-        }
-      </p>
-      
-      <div className="flex gap-2">
-        <button
-          onClick={handleInstallClick}
-          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
-        >
-          {shouldShowPrompt ? 'Install App' : 'Show Instructions'}
-        </button>
-        <button
-          onClick={handleDismiss}
-          className="px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
-        >
-          Not now
-        </button>
+        
+        <p className="text-sm text-[#A1A1AA] mb-4 relative z-10">
+          {shouldShowPrompt 
+            ? 'Install CampusOrbit on your device for quick access and offline functionality.'
+            : 'Add CampusOrbit to your home screen for easy access. Use your browser\'s install option.'
+          }
+        </p>
+        
+        <div className="flex gap-3 relative z-10">
+          <button
+            onClick={handleInstallClick}
+            className="flex-1 bg-[#FF6B6B] hover:bg-[#EF4444] text-white py-2 px-4 rounded-lg text-sm font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+          >
+            {shouldShowPrompt ? 'Install Now' : 'Show Instructions'}
+          </button>
+          <button
+            onClick={handleDismiss}
+            className="px-4 py-2 text-sm text-[#A1A1AA] hover:text-[#F4F4F5] transition-colors"
+          >
+            Later
+          </button>
+        </div>
       </div>
     </div>
   );

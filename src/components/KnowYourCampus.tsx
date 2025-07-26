@@ -35,7 +35,7 @@ const KnowYourCampus = () => {
     {
       id: 4,
       title: "Tech Park (TP)",
-      description: "Engineering HQ, 2nd/3rd-year classes; food court on ground floor.",
+      description: "Engineering 2nd/3rd yr classes; food court on ground floor.",
       image: "https://i.postimg.cc/NGzFP209/tech-park.jpg",
       category: "Academics",
       mapLink: "https://maps.app.goo.gl/hSgfo6oYMgAGU4pr7",
@@ -114,7 +114,7 @@ const KnowYourCampus = () => {
     },
     {
       id: 14,
-      title: "Domino’s",
+      title: "Domino's",
       description: "Guduvanchery outlet-great for group dinners.",
       image: "https://i.postimg.cc/264cB0R7/468862621-10162636247147745-924446671252180210-n.jpg",
       category: "Beyond Campus",
@@ -122,7 +122,7 @@ const KnowYourCampus = () => {
     },
     {
       id: 15,
-      title: "McDonald’s",
+      title: "McDonald's",
       description: "Grab-and-go burgers & coffee. Avoid during rush hours.",
       image: "https://i.postimg.cc/qMdtLjfC/30265379-422027744919322-671988667576745984-n.jpg",
       category: "Beyond Campus",
@@ -147,7 +147,7 @@ const KnowYourCampus = () => {
     {
       id: 18,
       title: "Vandalur Zoo",
-      description: "₹50 entry. One of India’s largest zoos.",
+      description: "₹50 entry. One of India's largest zoos.",
       image: "https://i.postimg.cc/y8ZN9Rx8/1720975930975.png",
       category: "Beyond Campus",
       mapLink: "https://maps.app.goo.gl/rqtX2fQ3avNDN4i28",
@@ -163,14 +163,14 @@ const KnowYourCampus = () => {
     {
       id: 20,
       title: "TP Auditorium",
-      description: "Asia’s largest (3,000+ seats). Hosts fests, TEDx, and culturals.",
-      image: "https://i.postimg.cc/sgVY90D9/dr-t-p-ganesan-auditorium-potheri-chengalpattu-auditoriums-ln3-Lc-QCn-Dl.avif",
+      description: "Asia's largest (3,000+ seats). Hosts fests, TEDx, and culturals.",
+      image: "https://i.postimg.cc/sgVY90D9/dr-t-p-ganesan-auditorium-potheri-chengalpattu-auditoriums-ln3LcQCnDl.avif",
       category: "Academics",
       mapLink: "https://maps.app.goo.gl/YmgJgRumj31hBGNL7",
     },
     {
       id: 21,
-      title: "Kopperundevi (M Block)",
+      title: "Kopperundevi - M Block",
       description: "Biggest hostel (500+ rooms). Strict 6:30 PM curfew.",
       image: "https://i.postimg.cc/wMczWxhn/Kopperundevi-M-Block-scaled.jpg",
       category: "Hostel & Stay",
@@ -179,7 +179,7 @@ const KnowYourCampus = () => {
     {
       id: 22,
       title: "Meenakshi Hostel",
-      description: "Girls’ hostel near YouPrints, known for cleanliness.",
+      description: "Girls' hostel near YouPrints, known for cleanliness.",
       image: "https://i.postimg.cc/mrvNjTZY/Meenakshi-Hostel-SRMIST.jpg",
       category: "Hostel & Stay",
       mapLink: "https://maps.app.goo.gl/ZQwRKVnEJcRiFr7y5",
@@ -193,7 +193,7 @@ const KnowYourCampus = () => {
       mapLink: "https://maps.app.goo.gl/WVxfqQav7mxurxfaA",
     },
     {
-      id: 23,
+      id: 24,
       title: "Mahabalipuram",
       description: "UNESCO World Heritage town ~60 km away.",
       image: "https://i.postimg.cc/qvbGt9tT/5468bcb2a5a0902e29b3b0fd29e0a9d1-1000x1000.jpg",
@@ -210,81 +210,85 @@ const KnowYourCampus = () => {
     },
   ]
 
-  
-  const filteredLocations =
-  activeFilter === "All" ? locations : locations.filter(loc => loc.category === activeFilter)
+  const filteredLocations = activeFilter === "All" 
+    ? locations 
+    : locations.filter(loc => loc.category === activeFilter)
 
-return (
-  <div className="space-y-8 p-4">
-    {/* Heading */}
-    <div>
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FF6B6B] mb-2">
-        Know Your Campus
-      </h1>
-      <p className="text-lg text-[#22C55E]">
-        From academic blocks to food joints and nearby essentials.
-      </p>
-    </div>
+  return (
+    <div className="space-y-8 p-4">
+      {/* Heading */}
+      <div>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FF6B6B] mb-2">
+          Know Your Campus
+        </h1>
+        <p className="text-lg text-[#22C55E]">
+          From academic blocks to food joints and nearby essentials.
+        </p>
+      </div>
 
-    {/* Filter Buttons - Updated for single row */}
-    <div className="overflow-x-auto pb-2"> {/* Added horizontal scroll container */}
-      <div className="flex flex-nowrap gap-3 w-max"> {/* Changed to flex-nowrap and w-max */}
-        {filters.map(filter => (
-          <button
-            key={filter}
-            onClick={() => setActiveFilter(filter)}
-            className={`px-6 py-3 whitespace-nowrap rounded-xl font-medium transition-all duration-200 ${
-              activeFilter === filter
-                ? "bg-[#22C55E] text-white shadow-lg"
-                : "bg-[#2A2A2E] text-[#A1A1AA] hover:bg-[#2D2D30] hover:text-[#F4F4F5]"
-            }`}
-          >
-            {filter}
-          </button>
-        ))}
+      {/* Filter Buttons */}
+      <div className="overflow-x-auto pb-2">
+        <div className="flex flex-nowrap gap-3 w-max">
+          {filters.map(filter => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`px-6 py-3 whitespace-nowrap rounded-xl font-medium transition-all duration-200 ${
+                activeFilter === filter
+                  ? "bg-[#22C55E] text-white shadow-lg"
+                  : "bg-[#2A2A2E] text-[#A1A1AA] hover:bg-[#2D2D30] hover:text-[#F4F4F5]"
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Grid Display */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {filteredLocations.length > 0 ? (
+          filteredLocations.map((location) => (
+            <div
+              key={location.id}
+              className="bg-[#2A2A2E] rounded-2xl overflow-hidden shadow-lg border border-[#2D2D30] hover:border-[#FF6B6B]/30 transition-all duration-200"
+            >
+              {/* 16:9 image aspect ratio */}
+              <div className="relative w-full pt-[56.25%]">
+                <img
+                  src={location.image}
+                  alt={location.title}
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "/placeholder.svg";
+                  }}
+                />
+              </div>
+
+              {/* Details */}
+              <div className="p-5 space-y-4">
+                <h3 className="text-xl font-bold text-[#22C55E]">{location.title}</h3>
+                <p className="text-sm text-[#A1A1AA] leading-relaxed">{location.description}</p>
+                <a
+                  href={location.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white py-3 px-4 rounded-xl transition-all duration-200 font-medium shadow-lg text-center"
+                >
+                  View on Map
+                </a>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="col-span-full text-center py-10">
+            <p className="text-xl text-[#A1A1AA]">No locations found</p>
+          </div>
+        )}
       </div>
     </div>
-
-    {/* Grid Display */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {filteredLocations.length > 0 ? (
-        filteredLocations.map((location) => (
-          <div
-            key={location.id}
-            className="bg-[#2A2A2E] rounded-2xl overflow-hidden shadow-lg border border-[#2D2D30] hover:border-[#FF6B6B]/30 transition-all duration-200"
-          >
-            {/* 16:9 image aspect ratio */}
-            <div className="relative w-full pt-[56.25%]">
-              <img
-                src={location.image || "/placeholder.svg"}
-                alt={location.title}
-                className="absolute top-0 left-0 w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Details */}
-            <div className="p-5 space-y-4">
-              <h3 className="text-xl font-bold text-[#22C55E]">{location.title}</h3>
-              <p className="text-sm text-[#A1A1AA] leading-relaxed">{location.description}</p>
-              <a
-                href={location.mapLink || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white py-3 px-4 rounded-xl transition-all duration-200 font-medium shadow-lg text-center"
-              >
-                View on Map
-              </a>
-            </div>
-          </div>
-        ))
-      ) : (
-        <div className="col-span-full text-center py-10">
-          <p className="text-xl text-[#A1A1AA]">No locations found</p>
-        </div>
-      )}
-    </div>
-  </div>
-)
+  )
 }
 
 export default KnowYourCampus

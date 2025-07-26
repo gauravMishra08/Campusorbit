@@ -10,6 +10,16 @@ const EventsHub = () => {
   useEffect(() => {
     const sampleEvents = [
       {
+        id: 7,
+        title: 'Hack & Beyond',
+        organizer: 'by Aakash Research Lab',
+        date: '2025-08-11',
+        endDate: '2025-08-12',
+        time: 'N.A.',
+        image: 'https://i.postimg.cc/W4S7gKCC/Screenshot-2025-07-26-at-22-37-13.png',
+        registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLScAEzF1r7pJmBicPGLFT6No_jpW95y4Ec_LaOFeHmyJjAUNAQ/viewform'
+      },
+      {
         id: 1,
         title: 'X-PLAY',
         organizer: 'by aaruush_srm',
