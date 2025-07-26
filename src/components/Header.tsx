@@ -13,7 +13,7 @@ const Header = ({ sidebarOpen, setSidebarOpen, activeSection, setActiveSection }
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0E0E10]/95 backdrop-blur-md border-b border-[#2A2A2E] h-20">
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 h-full">
         <div className="flex items-center space-x-3">
-          <img src="https://hanushrajputh.github.io/Cloud/OrbitLogo.png" alt="CampusOrbit" className="h-8 w-auto" />
+          <img src="https://hanushrajputh.github.io/Cloud/OrbitLogo.png" alt="CampusOrbit" className="h-12 w-auto" />
         </div>
 
         {/* Desktop Navigation */}
