@@ -203,7 +203,7 @@ const Resources = () => {
       <div className="px-2">
         <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#FF6B6B] mb-1">Resources</h1>
         <p className="text-md text-[#22C55E]">
-          Your complete academic orbit
+          All your resources in one place
         </p>
       </div>
 

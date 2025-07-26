@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const WhatsInMess = () => {
   // Get current day and set as default
@@ -12,6 +12,91 @@ const WhatsInMess = () => {
 
   const [activeDay, setActiveDay] = useState(getCurrentDay())
   const [activeMess, setActiveMess] = useState("Sannasi") // Default to Sannasi mess
+  const [currentMeal, setCurrentMeal] = useState("")
+  const [liveTime, setLiveTime] = useState(new Date())
+
+  // Function to get current meal based on IST time
+  const getCurrentMeal = () => {
+    const now = new Date()
+    // Convert to IST (UTC+5:30)
+    const istOffset = 5.5 * 60 * 60 * 1000 // 5 hours 30 minutes in milliseconds
+    const istTime = new Date(now.getTime() + istOffset)
+    const hours = istTime.getUTCHours()
+    const minutes = istTime.getUTCMinutes()
+    const currentTime = hours * 60 + minutes // Current time in minutes from midnight
+
+    // Meal timings in minutes from midnight
+    const breakfastStart = 7 * 60 + 30  // 7:30 AM = 450 minutes
+    const breakfastEnd = 9 * 60         // 9:00 AM = 540 minutes
+    const lunchStart = 11 * 60 + 30     // 11:30 AM = 690 minutes  
+    const lunchEnd = 13 * 60 + 30       // 1:30 PM = 810 minutes
+    const dinnerStart = 19 * 60 + 30    // 7:30 PM = 1170 minutes
+    const dinnerEnd = 21 * 60           // 9:00 PM = 1260 minutes
+
+    // Determine current or next meal
+    if (currentTime >= breakfastStart && currentTime <= breakfastEnd) {
+      return "Breakfast"
+    } else if (currentTime >= lunchStart && currentTime <= lunchEnd) {
+      return "Lunch"
+    } else if (currentTime >= dinnerStart && currentTime <= dinnerEnd) {
+      return "Dinner"
+    } else if (currentTime < breakfastStart) {
+      return "Breakfast" // Next meal is breakfast
+    } else if (currentTime > breakfastEnd && currentTime < lunchStart) {
+      return "Lunch" // Next meal is lunch
+    } else if (currentTime > lunchEnd && currentTime < dinnerStart) {
+      return "Dinner" // Next meal is dinner
+    } else {
+      return "Breakfast" // After dinner, next meal is breakfast (next day)
+    }
+  }
+
+  // Update current meal every minute
+  useEffect(() => {
+    const updateCurrentMeal = () => {
+      setCurrentMeal(getCurrentMeal())
+    }
+    
+    // Set initial meal
+    updateCurrentMeal()
+    
+    // Update every minute
+    const interval = setInterval(updateCurrentMeal, 60000)
+    
+    return () => clearInterval(interval)
+  }, [])
+
+  // Update live time every second
+  useEffect(() => {
+    const updateLiveTime = () => {
+      setLiveTime(new Date())
+    }
+    
+    // Update every second
+    const interval = setInterval(updateLiveTime, 1000)
+    
+    return () => clearInterval(interval)
+  }, [])
+
+  // Function to format time in 12-hour format
+  const formatTime12Hour = (date: Date) => {
+    // Convert to IST
+    const istTime = new Date(date.getTime() + (5.5 * 60 * 60 * 1000))
+    const hours = istTime.getUTCHours()
+    const minutes = istTime.getUTCMinutes()
+    const seconds = istTime.getUTCSeconds()
+    
+    // Convert to 12-hour format
+    const hour12 = hours === 0 ? 12 : hours > 12 ? hours - 12 : hours
+    const ampm = hours >= 12 ? 'PM' : 'AM'
+    
+    // Format with leading zeros
+    const formattedHour = hour12.toString()
+    const formattedMinute = minutes.toString().padStart(2, '0')
+    const formattedSecond = seconds.toString().padStart(2, '0')
+    
+    return `${formattedHour}:${formattedMinute}:${formattedSecond} ${ampm}`
+  }
 
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
@@ -271,19 +356,69 @@ const WhatsInMess = () => {
   };  
 
   const currentMessData = activeMess === "Sannasi" ? sannasiMenuData : mBlockMenuData
-  const currentMenu = currentMessData[activeDay] || currentMessData.Monday
+  const currentMenu = currentMessData[activeDay as keyof typeof currentMessData] || currentMessData.Monday
 
   const mealSections = [
-    { name: "Breakfast", items: currentMenu.breakfast, color: "bg-[#FF6B6B]", textColor: "text-[#FF6B6B]" },
-    { name: "Lunch", items: currentMenu.lunch, color: "bg-[#22C55E]", textColor: "text-[#22C55E]" },
-    { name: "Snacks", items: currentMenu.snacks, color: "bg-[#3B82F6]", textColor: "text-[#3B82F6]" },
-    { name: "Dinner", items: currentMenu.dinner, color: "bg-[#EF4444]", textColor: "text-[#EF4444]" },
+    { 
+      name: "Breakfast", 
+      items: currentMenu.breakfast, 
+      color: currentMeal === "Breakfast" ? "bg-[#FF6B6B] ring-4 ring-[#FFD700] shadow-2xl" : "bg-[#FF6B6B]", 
+      textColor: "text-[#FF6B6B]",
+      isCurrent: currentMeal === "Breakfast"
+    },
+    { 
+      name: "Lunch", 
+      items: currentMenu.lunch, 
+      color: currentMeal === "Lunch" ? "bg-[#22C55E] ring-4 ring-[#FFD700] shadow-2xl" : "bg-[#22C55E]", 
+      textColor: "text-[#22C55E]",
+      isCurrent: currentMeal === "Lunch"
+    },
+    { 
+      name: "Snacks", 
+      items: currentMenu.snacks, 
+      color: "bg-[#3B82F6]", 
+      textColor: "text-[#3B82F6]",
+      isCurrent: false
+    },
+    { 
+      name: "Dinner", 
+      items: currentMenu.dinner, 
+      color: currentMeal === "Dinner" ? "bg-[#EF4444] ring-4 ring-[#FFD700] shadow-2xl" : "bg-[#EF4444]", 
+      textColor: "text-[#EF4444]",
+      isCurrent: currentMeal === "Dinner"
+    },
   ]
 
   return (
     <div className="space-y-8 p-4 md:p-6">
       <div>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FF6B6B] mb-2">What's in Mess</h1>
+        {/* Current time and meal indicator */}
+        <div className="bg-[#2A2A2E] rounded-xl p-4 border border-[#2D2D30] mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="text-[#F4F4F5]">
+              <span className="text-sm text-[#A1A1AA]">Current Time (IST): </span>
+              <span className="font-mono font-medium">
+                {formatTime12Hour(liveTime)}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-[#A1A1AA]">Current/Next Meal:</span>
+              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                currentMeal === "Breakfast" ? "bg-[#FF6B6B] text-white" :
+                currentMeal === "Lunch" ? "bg-[#22C55E] text-white" :
+                "bg-[#EF4444] text-white"
+              }`}>
+                {currentMeal}
+              </span>
+            </div>
+          </div>
+          <div className="mt-3 text-xs text-[#A1A1AA] grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <span>Breakfast: 7:30 - 9:00 AM</span>
+            <span>Lunch: 11:30 AM - 1:30 PM</span>
+            <span>Dinner: 7:30 - 9:00 PM</span>
+          </div>
+        </div>
       </div>
 
       {/* Mess selector */}
@@ -331,15 +466,24 @@ const WhatsInMess = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {mealSections.map((section) => (
           <div key={section.name} className="space-y-4">
-            <div className={`${section.color} text-white text-center py-4 rounded-2xl font-bold text-lg shadow-lg`}>
+            <div className={`${section.color} text-white text-center py-4 rounded-2xl font-bold text-lg shadow-lg relative transition-all duration-300`}>
               {section.name}
+              {section.isCurrent && (
+                <div className="absolute -top-2 -right-2 bg-[#FFD700] text-[#000000] text-xs font-bold px-2 py-1 rounded-full animate-pulse">
+                  NOW
+                </div>
+              )}
             </div>
-            <div className="bg-[#2A2A2E] rounded-2xl p-5 border border-[#2D2D30]">
+            <div className={`bg-[#2A2A2E] rounded-2xl p-5 border transition-all duration-300 ${
+              section.isCurrent ? 'border-[#FFD700] shadow-lg' : 'border-[#2D2D30]'
+            }`}>
               <ul className="space-y-3">
-                {section.items.map((item, index) => (
+                {section.items.map((item: string, index: number) => (
                   <li
                     key={index}
-                    className={`text-sm font-medium ${section.textColor} bg-[#0E0E10] px-3 py-2 rounded-lg border border-[#2D2D30]`}
+                    className={`text-sm font-medium ${section.textColor} bg-[#0E0E10] px-3 py-2 rounded-lg border transition-all duration-200 ${
+                      section.isCurrent ? 'border-[#FFD700] shadow-sm' : 'border-[#2D2D30]'
+                    }`}
                   >
                     {item}
                   </li>

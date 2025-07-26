@@ -11,7 +11,7 @@ const KnowYourCampus = () => {
     {
       id: 1,
       title: "Arch Gate",
-      description: "Main entry point. Food delivery guys wait here.",
+      description: "Main entry point. Food delivery guys wait here with orders.",
       image: "https://i.postimg.cc/cCpvyLjh/pic3.jpg",
       category: "Essentials",
       mapLink: "https://maps.app.goo.gl/DDVKYpqKpWwB69Pi9",
@@ -90,7 +90,7 @@ const KnowYourCampus = () => {
     },
     {
       id: 11,
-      title: "Spice of Life",
+      title: "Slice of Life",
       description: "Indian meals & snacks. Medical College side 5-min walk from TP.",
       image: "https://i.postimg.cc/pd223F0k/481903410-1119970829928205-5035039138980332897-n-1.jpg",
       category: "Food",
@@ -123,7 +123,7 @@ const KnowYourCampus = () => {
     {
       id: 15,
       title: "McDonald's",
-      description: "Grab-and-go burgers & coffee. Avoid during rush hours.",
+      description: "Grab-and-go burgers & coffee",
       image: "https://i.postimg.cc/qMdtLjfC/30265379-422027744919322-671988667576745984-n.jpg",
       category: "Beyond Campus",
       mapLink: "https://maps.app.goo.gl/x6r1XxoLRQ5wJ8Fb6",
@@ -131,7 +131,7 @@ const KnowYourCampus = () => {
     {
       id: 16,
       title: "A2B",
-      description: "South Indian restaurant great for breakfast & sweets.",
+      description: "South Indian restaurant",
       image: "https://i.postimg.cc/yYPNTKXw/adyar-ananda-bhavan-potheri-chengalpattu-sweet-shops-k9h1ct5s8o-250.jpg",
       category: "Beyond Campus",
       mapLink: "https://maps.app.goo.gl/KABzFK6C7VXwxD3k6",
@@ -147,7 +147,7 @@ const KnowYourCampus = () => {
     {
       id: 18,
       title: "Vandalur Zoo",
-      description: "₹50 entry. One of India's largest zoos.",
+      description: "₹50 entry. One of India's largest zoos. Good hangout spot after classes.",
       image: "https://i.postimg.cc/y8ZN9Rx8/1720975930975.png",
       category: "Beyond Campus",
       mapLink: "https://maps.app.goo.gl/rqtX2fQ3avNDN4i28",
@@ -187,7 +187,7 @@ const KnowYourCampus = () => {
     {
       id: 23,
       title: "Adhiyaman Hostel",
-      description: "Best for 1st years. AC rooms with attached washrooms.",
+      description: "AC rooms with attached washrooms.",
       image: "https://i.postimg.cc/VNKP0HYP/image-002-e1649296856588.jpg",
       category: "Hostel & Stay",
       mapLink: "https://maps.app.goo.gl/WVxfqQav7mxurxfaA",

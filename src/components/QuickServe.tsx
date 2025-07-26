@@ -147,7 +147,7 @@ const QuickServe = () => {
         </p>
       </div>
 
-      {/* Promotional Banner */}
+      {/* Promotional Banner 
       <div className="relative bg-[#2A2A2E] rounded-2xl overflow-hidden border border-[#2D2D30] mb-6">
         <div className="relative h-48 w-full">
           <img
@@ -165,6 +165,7 @@ const QuickServe = () => {
           </div>
         </div>
       </div>
+      */}
 
       {/* Search and Filter */}
       <div className="flex flex-col sm:flex-row gap-3">
@@ -208,13 +209,6 @@ const QuickServe = () => {
                   </div>
                   
                   <div className="flex gap-2">
-                    <button 
-                      className="flex-1 bg-[#3B82F6] hover:bg-[#2563EB] text-white py-2 px-4 rounded-xl transition-all duration-200 font-medium flex items-center justify-center gap-2"
-                      onClick={() => handleMenuClick(outlet)}
-                    >
-                      <MenuIcon className="w-4 h-4" />
-                      Menu
-                    </button>
                     <button 
                       className="flex-1 bg-[#22C55E] hover:bg-[#16A34A] text-white py-2 px-4 rounded-xl transition-all duration-200 font-medium flex items-center justify-center gap-2"
                       onClick={() => handleCall(outlet.phone)}
