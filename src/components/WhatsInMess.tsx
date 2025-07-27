@@ -391,35 +391,6 @@ const WhatsInMess = () => {
 
   return (
     <div className="space-y-8 p-4 md:p-6">
-      <div>
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FF6B6B] mb-2">What's in Mess</h1>
-        {/* Current time and meal indicator */}
-        <div className="bg-[#2A2A2E] rounded-xl p-4 border border-[#2D2D30] mb-4">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <div className="text-[#F4F4F5]">
-              <span className="text-sm text-[#A1A1AA]">Current Time (IST): </span>
-              <span className="font-mono font-medium">
-                {formatTime12Hour(liveTime)}
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-[#A1A1AA]">Current/Next Meal:</span>
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                currentMeal === "Breakfast" ? "bg-[#FF6B6B] text-white" :
-                currentMeal === "Lunch" ? "bg-[#22C55E] text-white" :
-                "bg-[#EF4444] text-white"
-              }`}>
-                {currentMeal}
-              </span>
-            </div>
-          </div>
-          <div className="mt-3 text-xs text-[#A1A1AA] grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <span>Breakfast: 7:30 - 9:00 AM</span>
-            <span>Lunch: 11:30 AM - 1:30 PM</span>
-            <span>Dinner: 7:30 - 9:00 PM</span>
-          </div>
-        </div>
-      </div>
 
       {/* Mess selector */}
       <div className="flex gap-4 mb-4">

@@ -5,102 +5,54 @@ const QuickServe = () => {
   const outlets = [
     {
       id: 1,
-      name: "MP Foods-Estancia",
-      description: "Authentic biriyani and continental cuisine",
-      image: "https://i.postimg.cc/VL1vxgfQ/MPFoods.jpg",
-      phone: "+91 98765 43210",
+      name: "Evergreen",
+      description: "Known for its Chinese food, biryani, and pasta.",
+      image: "https://i.postimg.cc/qRybkFtF/unnamed.webp",
+      phone: "+91 99623 72887",
       waitTime: "15 mins",
-      menu: {
-        categories: [
-          {
-            name: "Continental Dishes",
-            items: [
-              { name: "Vegetable Augratin", price: 150, type: "veg" },
-              { name: "Corn Augratin", price: 150, type: "veg" },
-              { name: "Mushroom Augratin", price: 160, type: "veg" },
-              { name: "Macaroni Augratin", price: 150, type: "veg" },
-              { name: "Macaroni Millanise", price: 150, type: "veg" },
-              { name: "Corn Mushroom Augratin", price: 160, type: "veg" },
-              { name: "Spicy Corn Test", price: 160, type: "veg" },
-              { name: "Speghetti Burmese", price: 160, type: "veg" },
-              { name: "Speghetti Napolitan", price: 160, type: "veg" }
-            ]
-          },
-          {
-            name: "Biryani Specials",
-            items: [
-              { name: "Chicken Biryani", price: 180, type: "non-veg" },
-              { name: "Mutton Biryani", price: 220, type: "non-veg" },
-              { name: "Veg Biryani", price: 120, type: "veg" },
-              { name: "Paneer Biryani", price: 150, type: "veg" }
-            ]
-          }
-        ]
-      }
     },
     {
-      id: 2,
-      name: "Google Food Park",
-      description: "Authentic Indian delicacies",
-      image: "https://i.postimg.cc/R0jVXQsY/pexels-photo-958545.jpg",
-      phone: "+91 87654 32109",
-      waitTime: "20 mins",
-      menu: {
-        categories: [
-          {
-            name: "Biryani",
-            items: [
-              { name: "Hyderabadi Chicken Biriyani", price: 110, type: "non-veg" },
-              { name: "Google Special Biriyani", price: 140, type: "non-veg" },
-              { name: "Veg Biriyani", price: 100, type: "veg" }
-            ]
-          }
-        ]
-      }
-    },
+    id: 2,
+    name: "Butty",
+    description: "Primarily a sandwich shop, but also famous for its rolls - often crowded.",
+    image: "https://i.postimg.cc/CMD5gscf/butty-potheri-chengalpattu-sandwich-stalls-Cdg-A9aukgu.webp",
+    phone: "+91 86376 74853",
+    waitTime: "20 mins",
+  },
     {
-      id: 3,
-      name: "Godavari",
-      description: "Spice of Andhra",
-      image: "https://i.postimg.cc/k43qxMD3/godavari.jpg",
-      phone: "+91 76543 21098",
-      waitTime: "8 mins",
-      menu: {
-        categories: [
-          {
-            name: "Andhra Specials",
-            items: [
-              { name: "Andhra Chicken Curry", price: 150, type: "non-veg" },
-              { name: "Gongura Mutton", price: 200, type: "non-veg" }
-            ]
-          }
-        ]
-      }
-    },
+    id: 3,
+    name: "Sohana Biryani",
+    description: "Famous for biryani, also serves pasta, fried rice, and noodles.",
+    image: "https://i.postimg.cc/bwfQPv0q/17213890153ce8e5b7-3c89-43e2-98a7-98ef85649937.jpg",
+    phone: "+91 82499 89834",
+    waitTime: "12 mins",
+  },
     {
-      id: 4,
-      name: "EverGreen",
-      description: "Continental cuisine with local twist",
-      image: "https://i.postimg.cc/5NN15R90/evergreen.png",
-      phone: "+91 65432 10987",
-      waitTime: "20 mins",
-      menu: {
-        categories: [
-          {
-            name: "Continental",
-            items: [
-              { name: "Pasta Alfredo", price: 150, type: "veg" },
-              { name: "Margherita Pizza", price: 180, type: "veg" }
-            ]
-          }
-        ]
-      }
-    }
+    id: 4,
+    name: "Google+",
+    description: "North Indian, Mughlai, Biryani, Chinese, Kebab, Seafood, Fast Food, Street Food",
+    image: "https://i.postimg.cc/bJVBVnty/unnamed-1.webp",
+    phone: "+91 99320 58224",
+    waitTime: "25 mins",
+  },
+    {
+      id: 5,
+      name: "Darjeeling Momos",
+      description: "Known for its momos and other Tibetan and North Indian dishes.",
+      image: "https://i.postimg.cc/dVvcy8Rp/darjeeling-momos-selaiyur-chennai-restaurants-n4peboeqt9.webp",
+      phone: "+91 83484 92077",
+      waitTime: "25 mins",
+  },
+    {
+      id: 6,
+      name: "Mini China",
+      description: "Offers dine-in and takeaway options. Hostel delivery available with additional charges.",
+      image: "https://i.postimg.cc/vTRNds3k/Screenshot-2025-07-27-at-13-07-06.png",
+      phone: "+91 72001 26134",
+      waitTime: "30 mins",
+  }
   ];
 
-  const [selectedOutlet, setSelectedOutlet] = useState(null);
-  const [showMenuModal, setShowMenuModal] = useState(false);
-  const [expandedCategories, setExpandedCategories] = useState([]);
   const [foodFilter, setFoodFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -108,26 +60,6 @@ const QuickServe = () => {
     window.open(`tel:${phoneNumber}`);
   };
 
-  const handleMenuClick = (outlet) => {
-    setSelectedOutlet(outlet);
-    setShowMenuModal(true);
-    setExpandedCategories(outlet.menu.categories.map((_, index) => index));
-    setFoodFilter("all");
-  };
-
-  const toggleCategory = (index) => {
-    setExpandedCategories(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index) 
-        : [...prev, index]
-    );
-  };
-
-  const filterItems = (items) => {
-    return foodFilter === "all" 
-      ? items 
-      : items.filter(item => item.type === foodFilter);
-  };
 
   const filteredOutlets = outlets.filter(outlet => {
     const query = searchQuery.toLowerCase();
@@ -146,26 +78,6 @@ const QuickServe = () => {
           Browse campus food menus with prices and call the outlet to place your order.
         </p>
       </div>
-
-      {/* Promotional Banner 
-      <div className="relative bg-[#2A2A2E] rounded-2xl overflow-hidden border border-[#2D2D30] mb-6">
-        <div className="relative h-48 w-full">
-          <img
-            src="https://i.postimg.cc/mg6wdCLb/pexels-photo-958545-jpeg-cs-srgb-dl-pexels-chanwalrus-958545.jpg"
-            alt="Campus food delivery"
-            className="w-full h-full object-cover"
-            onError={(e) => e.target.src = "https://via.placeholder.com/1200x400?text=Campus+Food+Delivery"}
-          />
-          <div className="absolute inset-0 bg-[#FF6B6B] bg-opacity-80"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center p-6 text-white text-left">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold mb-2">Free Hostel Delivery</h2>
-            <p className="text-base sm:text-lg">On all orders above ₹100 from selected outlets</p>
-          </div>
-        </div>
-      </div>
-      */}
 
       {/* Search and Filter */}
       <div className="flex flex-col sm:flex-row gap-3">
@@ -229,112 +141,6 @@ const QuickServe = () => {
           </div>
         )}
       </div>
-
-      {/* Menu Modal */}
-      {showMenuModal && selectedOutlet && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
-          <div className="bg-[#2A2A2E] rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-            {/* Menu Header */}
-            <div className="sticky top-0 bg-[#2A2A2E] p-6 border-b border-[#2D2D30]">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h2 className="text-2xl font-bold text-[#22C55E]">
-                    {selectedOutlet.name}
-                  </h2>
-                  <p className="text-sm text-[#A1A1AA]">
-                    {selectedOutlet.description}
-                  </p>
-                </div>
-                <button 
-                  onClick={() => setShowMenuModal(false)}
-                  className="text-[#A1A1AA] hover:text-white p-1"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-              </div>
-            </div>
-            
-            {/* Food Type Filter */}
-            <div className="flex border-b border-[#2D2D30] bg-[#2D2D30] sticky top-[104px] z-10">
-              <button
-                className={`flex-1 py-3 font-medium ${foodFilter === "all" ? "text-[#22C55E] border-b-2 border-[#22C55E]" : "text-[#A1A1AA]"}`}
-                onClick={() => setFoodFilter("all")}
-              >
-                All Items
-              </button>
-              <button
-                className={`flex-1 py-3 font-medium ${foodFilter === "veg" ? "text-[#22C55E] border-b-2 border-[#22C55E]" : "text-[#A1A1AA]"}`}
-                onClick={() => setFoodFilter("veg")}
-              >
-                Veg
-              </button>
-              <button
-                className={`flex-1 py-3 font-medium ${foodFilter === "non-veg" ? "text-[#FF6B6B] border-b-2 border-[#FF6B6B]" : "text-[#A1A1AA]"}`}
-                onClick={() => setFoodFilter("non-veg")}
-              >
-                Non-Veg
-              </button>
-            </div>
-            
-            {/* Menu Categories */}
-            <div className="p-6">
-              {selectedOutlet.menu.categories.map((category, index) => (
-                <div key={index} className="mb-8">
-                  <div 
-                    className="flex justify-between items-center cursor-pointer pb-2 border-b border-[#FF6B6B]"
-                    onClick={() => toggleCategory(index)}
-                  >
-                    <h3 className="text-xl font-bold text-[#FF6B6B]">
-                      {category.name}
-                    </h3>
-                    {expandedCategories.includes(index) ? (
-                      <ChevronUp className="w-5 h-5 text-[#FF6B6B]" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-[#FF6B6B]" />
-                    )}
-                  </div>
-                  
-                  {expandedCategories.includes(index) && (
-                    <div className="mt-4 space-y-4">
-                      {filterItems(category.items).map((item, itemIndex) => (
-                        <div key={itemIndex} className="flex justify-between items-start">
-                          <div className="flex items-start gap-3">
-                            <span className={`mt-1 ${item.type === "veg" ? "text-[#22C55E]" : "text-[#FF6B6B]"}`}>
-                              {item.type === "veg" ? "🟢" : "🔴"}
-                            </span>
-                            <div>
-                              <h4 className="text-[#F4F4F5] font-medium">{item.name}</h4>
-                            </div>
-                          </div>
-                          <span className="text-[#22C55E] font-medium whitespace-nowrap">
-                            ₹{item.price}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-            
-            {/* Menu Footer */}
-            <div className="sticky bottom-0 bg-[#2A2A2E] p-4 border-t border-[#2D2D30] flex justify-between items-center">
-              <button 
-                className="bg-[#3B82F6] hover:bg-[#2563EB] text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 shadow-lg flex items-center gap-2"
-                onClick={() => handleCall(selectedOutlet.phone)}
-              >
-                <Phone className="w-5 h-5" />
-                Call to Order
-              </button>
-              <div className="text-sm text-[#A1A1AA]">
-                {selectedOutlet.waitTime} wait time
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
