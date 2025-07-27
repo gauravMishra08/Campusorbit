@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['icon.png', 'icon-192x192.png', 'icon-512x512.png', 'astronaut.png', 'Gaurav.png', 'Rashmika.png', 'Saatvik.png', 'Utkarsh.png', 'resources.csv', 'favicon.svg'],
+      includeAssets: ['icon.png', 'icon-128x128.png', 'icon-512x512.png', 'astronaut.png', 'Gaurav.png', 'Rashmika.png', 'Saatvik.png', 'Utkarsh.png', 'resources.csv'],
       manifest: {
         name: 'CampusOrbit',
         short_name: 'CampusOrbit',
@@ -22,8 +22,8 @@ export default defineConfig({
         lang: 'en',
         icons: [
           {
-            src: '/icon-192x192.png',
-            sizes: '192x192',
+            src: '/icon-128x128.png',
+            sizes: '128x128',
             type: 'image/png'
           },
           {

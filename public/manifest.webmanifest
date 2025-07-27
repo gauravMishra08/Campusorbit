@@ -1,0 +1,52 @@
+{
+  "name": "CampusOrbit - Your Campus Companion",
+  "short_name": "CampusOrbit",
+  "description": "Your all-in-one campus companion for resources, mess menus, events and more",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FF6B6B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "utilities"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "What's in Mess",
+      "short_name": "Mess Menu",
+      "description": "Check today's mess menu",
+      "url": "/?tab=mess",
+      "icons": [
+        {
+          "src": "/icon-128x128.png",
+          "sizes": "128x128"
+        }
+      ]
+    },
+    {
+      "name": "Resources",
+      "short_name": "Resources",
+      "description": "Access campus resources",
+      "url": "/?tab=resources",
+      "icons": [
+        {
+          "src": "/icon-128x128.png",
+          "sizes": "128x128"
+        }
+      ]
+    }
+  ]
+}
