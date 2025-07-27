@@ -43,7 +43,7 @@ const KnowYourCampus = () => {
     {
       id: 5,
       title: "Tech Park Cafeteria",
-      description: "100-seat cafeteria on TP ground floor, 7:30 AM-4:30 PM.",
+      description: "Cafeteria on TP ground floor, 7:30 AM-4:30 PM.",
       image: "https://i.postimg.cc/mg85Q9Rk/food-court.jpg",
       category: "Food",
       mapLink: "https://maps.app.goo.gl/ay98XB3fmpU8ZHjFA",
@@ -75,7 +75,7 @@ const KnowYourCampus = () => {
     {
       id: 9,
       title: "Java Canteen",
-      description: "Famous for rolls & lime juices. Near Clock Tower. Closes 7 PM",
+      description: "Famous for rolls & lime juices. Near Clock Tower. Closes 7:30 PM",
       image: "https://i.postimg.cc/RV75YFf2/Rectangle-34625269.png",
       category: "Food",
       mapLink: "https://maps.app.goo.gl/XAHuKaZCWHP8ZtqA8",
@@ -83,7 +83,7 @@ const KnowYourCampus = () => {
     {
       id: 10,
       title: "UB Canteen",
-      description: "Mess-style South Indian. With the capacity of over 150 students.",
+      description: "Mess-style South Indian Food. With the capacity of over 150 students.",
       image: "https://i.postimg.cc/q7wZx3Tg/Screenshot-2025-07-14-215229.png",
       category: "Food",
       mapLink: "https://maps.app.goo.gl/6WA1TKsA1o9yPgjCA",
