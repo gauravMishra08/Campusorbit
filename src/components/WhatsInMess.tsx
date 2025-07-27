@@ -11,7 +11,7 @@ const WhatsInMess = () => {
   }
 
   const [activeDay, setActiveDay] = useState(getCurrentDay())
-  const [activeMess, setActiveMess] = useState("Sannasi") // Default to Sannasi mess
+  const [activeMess, setActiveMess] = useState("Sannasi") // Default to Sannasi
   const [currentMeal, setCurrentMeal] = useState("")
   const [liveTime, setLiveTime] = useState(new Date())
 
@@ -390,7 +390,7 @@ const WhatsInMess = () => {
   ]
 
   return (
-    <div className="space-y-8 p-4 md:p-6">
+    <div className="space-y-6 p-4 md:p-6">
 
       {/* Mess selector */}
       <div className="flex gap-4 mb-4">
@@ -437,7 +437,7 @@ const WhatsInMess = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {mealSections.map((section) => (
           <div key={section.name} className="space-y-4">
-            <div className={`${section.color} text-white text-center py-4 rounded-2xl font-bold text-lg shadow-lg relative transition-all duration-300`}>
+            <div className={`${section.color} text-white text-center py-4 rounded-xl font-bold text-lg shadow-lg relative transition-all duration-300`}>
               {section.name}
               {section.isCurrent && (
                 <div className="absolute -top-2 -right-2 bg-[#FFD700] text-[#000000] text-xs font-bold px-2 py-1 rounded-full animate-pulse">
@@ -445,21 +445,26 @@ const WhatsInMess = () => {
                 </div>
               )}
             </div>
-            <div className={`bg-[#2A2A2E] rounded-2xl p-5 border transition-all duration-300 ${
+            <div className={`bg-[#2A2A2E] rounded-xl p-4 border transition-all duration-300 ${
               section.isCurrent ? 'border-[#FFD700] shadow-lg' : 'border-[#2D2D30]'
             }`}>
-              <ul className="space-y-3">
+              <div className="grid grid-cols-2 gap-2">
                 {section.items.map((item: string, index: number) => (
-                  <li
+                  <div
                     key={index}
-                    className={`text-sm font-medium ${section.textColor} bg-[#0E0E10] px-3 py-2 rounded-lg border transition-all duration-200 ${
-                      section.isCurrent ? 'border-[#FFD700] shadow-sm' : 'border-[#2D2D30]'
+                    className={`text-sm font-medium ${section.textColor} bg-[#0E0E10] px-3 py-2 rounded-lg border transition-all duration-200 flex items-center justify-center text-center min-h-[3rem] ${
+                      section.isCurrent ? 'border-[#FFD700]/30' : 'border-[#2D2D30]'
+                    } hover:bg-[#1A1A1E] ${
+                      // Center the last item if it's alone (odd number of items and it's the last one)
+                      section.items.length % 2 === 1 && index === section.items.length - 1 
+                        ? 'col-span-2 mx-auto max-w-[calc(50%-0.5rem)]' 
+                        : ''
                     }`}
                   >
                     {item}
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         ))}
