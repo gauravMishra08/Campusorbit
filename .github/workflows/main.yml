@@ -3,26 +3,28 @@ name: Trigger Vercel Deploy
 on:
   push:
     branches:
-      - main  # or the default branch name of your repo
+      - main  # Replace with your default branch name if different
 
 jobs:
   append-dot:
     runs-on: ubuntu-latest
 
-    if: github.actor != 'gauravMishra08'  # Replace with your GitHub username
+    # Only run this job if someone other than you pushes
+    if: github.actor != 'gauravMishra08'  # Replace with your GitHub username if different
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Append dot to trigger.txt
-        run: |
-          echo "." >> trigger.txt
+        run: echo "." >> trigger.txt
 
       - name: Commit and push changes
+        env:
+          TOKEN: ${{ secrets.GH_PAT }}  # You must set this in repo secrets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add trigger.txt
-          git commit -m "chore: trigger Vercel deploy"
-          git push
+          git commit -m "chore: trigger Vercel deploy" || echo "No changes to commit"
+          git push https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.git HEAD:main
