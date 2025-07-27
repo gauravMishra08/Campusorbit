@@ -30,21 +30,27 @@ const WhatsInMess = () => {
     const breakfastEnd = 9 * 60         // 9:00 AM = 540 minutes
     const lunchStart = 11 * 60 + 30     // 11:30 AM = 690 minutes  
     const lunchEnd = 13 * 60 + 30       // 1:30 PM = 810 minutes
+    const snacksStart = 16 * 60 + 30    // 4:30 PM = 990 minutes
+    const snacksEnd = 17 * 60 + 30      // 5:30 PM = 1050 minutes
     const dinnerStart = 19 * 60 + 30    // 7:30 PM = 1170 minutes
     const dinnerEnd = 21 * 60           // 9:00 PM = 1260 minutes
 
-    // Determine current or next meal
+    // Determine current meal (during meal times) or next meal (outside meal times)
     if (currentTime >= breakfastStart && currentTime <= breakfastEnd) {
       return "Breakfast"
     } else if (currentTime >= lunchStart && currentTime <= lunchEnd) {
       return "Lunch"
+    } else if (currentTime >= snacksStart && currentTime <= snacksEnd) {
+      return "Snacks"
     } else if (currentTime >= dinnerStart && currentTime <= dinnerEnd) {
       return "Dinner"
     } else if (currentTime < breakfastStart) {
       return "Breakfast" // Next meal is breakfast
     } else if (currentTime > breakfastEnd && currentTime < lunchStart) {
       return "Lunch" // Next meal is lunch
-    } else if (currentTime > lunchEnd && currentTime < dinnerStart) {
+    } else if (currentTime > lunchEnd && currentTime < snacksStart) {
+      return "Snacks" // Next meal is snacks
+    } else if (currentTime > snacksEnd && currentTime < dinnerStart) {
       return "Dinner" // Next meal is dinner
     } else {
       return "Breakfast" // After dinner, next meal is breakfast (next day)
@@ -376,9 +382,9 @@ const WhatsInMess = () => {
     { 
       name: "Snacks", 
       items: currentMenu.snacks, 
-      color: "bg-[#3B82F6]", 
+      color: currentMeal === "Snacks" ? "bg-[#3B82F6] ring-4 ring-[#FFD700] shadow-2xl" : "bg-[#3B82F6]", 
       textColor: "text-[#3B82F6]",
-      isCurrent: false
+      isCurrent: currentMeal === "Snacks"
     },
     { 
       name: "Dinner", 
