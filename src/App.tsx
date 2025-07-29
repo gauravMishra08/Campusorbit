@@ -11,6 +11,7 @@ import QuickServe from "./components/QuickServe"
 import About from "./components/About"
 import Feedback from "./components/Feedback"
 import Dashboard from "./components/Dashboard" // Import the new Dashboard component
+import PageTransition from "./components/PageTransition"
 
 function App() {
   const [activeSection, setActiveSection] = useState("dashboard-home") // Set default to dashboard-home
@@ -69,7 +70,11 @@ function App() {
         />
         {/* Main content area */}
         <main className="flex-1 lg:ml-64 min-h-[calc(100vh-5rem)] overflow-hidden">
-          <div className="p-2 sm:p-4 lg:p-6 h-full flex flex-col">{renderContent()}</div>
+          <div className="p-2 sm:p-4 lg:p-6 h-full flex flex-col">
+            <PageTransition pageKey={activeSection}>
+              {renderContent()}
+            </PageTransition>
+          </div>
         </main>
       </div>
     </div>

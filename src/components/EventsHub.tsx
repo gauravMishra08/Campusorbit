@@ -1,9 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock, Users } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+
+interface Event {
+  id: number;
+  title: string;
+  organizer: string;
+  date: string;
+  endDate?: string;
+  time: string;
+  image: string;
+  registerLink: string;
+  status?: 'upcoming' | 'ongoing' | 'completed';
+  formattedDate?: string;
+  startDate?: Date;
+}
 
 const EventsHub = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState<Event[]>([]);
   
   const filters = ['All', 'Upcoming', 'Completed'];
 
@@ -81,10 +96,10 @@ const EventsHub = () => {
     ];
 
     // Process events to determine their status
-    const processEvents = (events) => {
+    const processEvents = (events: Event[]) => {
       const now = new Date();
       
-      return events.map(event => {
+      return events.map((event: Event) => {
         const startDate = new Date(event.date);
         const endDate = event.endDate ? new Date(event.endDate) : startDate;
         
@@ -92,7 +107,7 @@ const EventsHub = () => {
         const endOfEndDate = new Date(endDate);
         endOfEndDate.setHours(23, 59, 59, 999);
         
-        let status = 'upcoming';
+        let status: 'upcoming' | 'ongoing' | 'completed' = 'upcoming';
         if (now > endOfEndDate) {
           status = 'completed';
         } else if (now >= startDate && now <= endOfEndDate) {
@@ -100,7 +115,7 @@ const EventsHub = () => {
         }
 
         // Format date in Indian format (DD.MM.YYYY)
-        const formatDate = (dateString) => {
+        const formatDate = (dateString: string) => {
           const [year, month, day] = dateString.split('-');
           return `${day.padStart(2, '0')}.${month.padStart(2, '0')}.${year}`;
         };
@@ -115,11 +130,10 @@ const EventsHub = () => {
           status,
           formattedDate: displayDate,
           startDate,
-          endDate: endOfEndDate
         };
       }).sort((a, b) => {
         // Sort by start date (newest first)
-        return b.startDate - a.startDate;
+        return b.startDate!.getTime() - a.startDate!.getTime();
       });
     };
 
@@ -162,41 +176,52 @@ const EventsHub = () => {
       </div>
 
       {/* Events Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="flex flex-wrap justify-center gap-x-10 gap-y-6">
         {getFilteredEvents().length > 0 ? (
           getFilteredEvents().map((event) => (
-            <div key={event.id} className="bg-[#2A2A2E] rounded-2xl overflow-hidden shadow-lg border border-[#2D2D30] hover:border-[#FF6B6B]/30 transition-all duration-200">
-              {/* Only changed this part for image aspect ratio */}
-              <div className="relative w-full pt-[56.25%]"> {/* 16:9 aspect ratio */}
-                <img
-                  src={event.image}
-                  alt={event.title}
-                  className="absolute top-0 left-0 w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/400x225?text=Event+Image';
-                  }}
-                />
-              </div>
-              
-              {/* Rest remains exactly the same */}
-              <div className="p-5 space-y-4">
-                <h3 className="text-xl font-bold text-[#22C55E]">{event.title}</h3>
-                <div className="space-y-2 text-sm text-[#A1A1AA]">
-                  <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4" />
-                    <span>{event.organizer}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
+            <CardContainer key={event.id} className="inter-var w-full sm:w-80 lg:w-72 xl:w-80" containerClassName="py-4">
+              <CardBody className="bg-[#2A2A2E] relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border border-[#2D2D30]">
+                <CardItem
+                  translateZ="50"
+                  className="text-xl font-bold text-[#22C55E] mb-2"
+                >
+                  {event.title}
+                </CardItem>
+                
+                <CardItem
+                  as="p"
+                  translateZ="60"
+                  className="text-[#A1A1AA] text-sm max-w-sm mb-4"
+                >
+                  {event.organizer}
+                </CardItem>
+                
+                <CardItem translateZ="100" className="w-full mb-4">
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="h-40 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = 'https://via.placeholder.com/400x225?text=Event+Image';
+                    }}
+                  />
+                </CardItem>
+                
+                <div className="space-y-2 mb-6">
+                  <CardItem translateZ="80" className="flex items-center gap-2 text-sm text-[#A1A1AA]">
                     <Calendar className="w-4 h-4" />
                     <span>{event.formattedDate}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
+                  </CardItem>
+                  <CardItem translateZ="80" className="flex items-center gap-2 text-sm text-[#A1A1AA]">
                     <Clock className="w-4 h-4" />
                     <span>{event.time}</span>
-                  </div>
+                  </CardItem>
                 </div>
                 
-                <button
+                <CardItem
+                  translateZ={20}
+                  as="button"
                   onClick={() => event.status === 'upcoming' && window.open(event.registerLink, '_blank')}
                   disabled={event.status !== 'upcoming'}
                   className={`w-full py-3 px-4 rounded-xl font-medium shadow-lg transition-all duration-200 ${
@@ -212,9 +237,9 @@ const EventsHub = () => {
                     : event.status === 'ongoing'
                     ? 'Ongoing'
                     : 'Register Now'}
-                </button>
-              </div>
-            </div>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
           ))
         ) : (
           <div className="col-span-full text-center py-10">

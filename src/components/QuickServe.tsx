@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, MenuIcon, X, ChevronDown, ChevronUp, Clock, Search, Filter } from "lucide-react";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 const QuickServe = () => {
   const outlets = [
@@ -96,41 +97,53 @@ const QuickServe = () => {
       {/* Outlets Section */}
       <div>
         {filteredOutlets.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-6">
             {filteredOutlets.map((outlet) => (
-              <div
-                key={outlet.id}
-                className="bg-[#2A2A2E] rounded-2xl overflow-hidden shadow-lg border border-[#2D2D30] hover:border-[#FF6B6B]/30 transition-all duration-200"
-              >
-                <div className="relative w-full pt-[56.25%]">
-                  <img
-                    src={outlet.image}
-                    alt={outlet.name}
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                    onError={(e) => e.target.src = "https://via.placeholder.com/400x225?text=Food+Outlet"}
-                  />
-                </div>
-                
-                <div className="p-5 space-y-4">
-                  <h3 className="text-xl font-bold text-[#22C55E]">{outlet.name}</h3>
-                  <p className="text-[#A1A1AA]">{outlet.description}</p>
+              <CardContainer key={outlet.id} className="inter-var w-full sm:w-80 lg:w-72 xl:w-80" containerClassName="py-4">
+                <CardBody className="bg-[#2A2A2E] relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border border-[#2D2D30]">
+                  <CardItem
+                    translateZ="50"
+                    className="text-xl font-bold text-[#22C55E] mb-2"
+                  >
+                    {outlet.name}
+                  </CardItem>
                   
-                  <div className="flex items-center gap-2 text-sm text-[#A1A1AA]">
+                  <CardItem
+                    as="p"
+                    translateZ="60"
+                    className="text-[#A1A1AA] text-sm mb-4"
+                  >
+                    {outlet.description}
+                  </CardItem>
+                  
+                  <CardItem translateZ="100" className="w-full mb-4">
+                    <img
+                      src={outlet.image}
+                      alt={outlet.name}
+                      className="h-40 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "https://via.placeholder.com/400x225?text=Food+Outlet";
+                      }}
+                    />
+                  </CardItem>
+                  
+                  <CardItem translateZ="80" className="flex items-center gap-2 text-sm text-[#A1A1AA] mb-4">
                     <Clock className="w-4 h-4" />
                     <span>{outlet.waitTime} wait time</span>
-                  </div>
+                  </CardItem>
                   
-                  <div className="flex gap-2">
-                    <button 
-                      className="flex-1 bg-[#22C55E] hover:bg-[#16A34A] text-white py-2 px-4 rounded-xl transition-all duration-200 font-medium flex items-center justify-center gap-2"
-                      onClick={() => handleCall(outlet.phone)}
-                    >
-                      <Phone className="w-4 h-4" />
-                      Call
-                    </button>
-                  </div>
-                </div>
-              </div>
+                  <CardItem
+                    translateZ={20}
+                    as="button"
+                    className="w-full bg-[#22C55E] hover:bg-[#16A34A] text-white py-2 px-4 rounded-xl transition-all duration-200 font-medium flex items-center justify-center gap-2"
+                    onClick={() => handleCall(outlet.phone)}
+                  >
+                    <Phone className="w-4 h-4" />
+                    Call
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
             ))}
           </div>
         ) : (

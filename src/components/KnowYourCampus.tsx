@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card"
 
 const KnowYourCampus = () => {
   const [activeFilter, setActiveFilter] = useState("All")
@@ -246,40 +247,50 @@ const KnowYourCampus = () => {
       </div>
 
       {/* Grid Display */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="flex flex-wrap justify-center gap-x-10 gap-y-6">
         {filteredLocations.length > 0 ? (
           filteredLocations.map((location) => (
-            <div
-              key={location.id}
-              className="bg-[#2A2A2E] rounded-2xl overflow-hidden shadow-lg border border-[#2D2D30] hover:border-[#FF6B6B]/30 transition-all duration-200"
-            >
-              {/* 16:9 image aspect ratio */}
-              <div className="relative w-full pt-[56.25%]">
-                <img
-                  src={location.image}
-                  alt={location.title}
-                  className="absolute top-0 left-0 w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/placeholder.svg";
-                  }}
-                />
-              </div>
-
-              {/* Details */}
-              <div className="p-5 space-y-4">
-                <h3 className="text-xl font-bold text-[#22C55E]">{location.title}</h3>
-                <p className="text-sm text-[#A1A1AA] leading-relaxed">{location.description}</p>
-                <a
+            <CardContainer key={location.id} className="inter-var w-full sm:w-80 lg:w-72 xl:w-80" containerClassName="py-4">
+              <CardBody className="bg-[#2A2A2E] relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border border-[#2D2D30]">
+                <CardItem
+                  translateZ="50"
+                  className="text-xl font-bold text-[#22C55E] mb-2"
+                >
+                  {location.title}
+                </CardItem>
+                
+                <CardItem
+                  as="p"
+                  translateZ="60"
+                  className="text-[#A1A1AA] text-sm mb-4 leading-relaxed"
+                >
+                  {location.description}
+                </CardItem>
+                
+                <CardItem translateZ="100" className="w-full mb-4">
+                  <img
+                    src={location.image}
+                    alt={location.title}
+                    className="h-40 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = "/placeholder.svg";
+                    }}
+                  />
+                </CardItem>
+                
+                <CardItem
+                  translateZ={20}
+                  as="a"
                   href={location.mapLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white py-3 px-4 rounded-xl transition-all duration-200 font-medium shadow-lg text-center"
                 >
                   View on Map
-                </a>
-              </div>
-            </div>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
           ))
         ) : (
           <div className="col-span-full text-center py-10">
