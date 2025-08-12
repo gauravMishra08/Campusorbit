@@ -16,24 +16,7 @@ const About = () => {
       linkedin: "https://www.linkedin.com/in/hanushsinghrajputh/",
       instagram: "https://www.instagram.com/hanushsinghrajputh/"
     },
-    {
-      name: "Gaurav Mishra",
-      role: "Full-Stack Designer",
-      image: "Gaurav.png",
-      portfolio: "https://gauravmishra08.vercel.app/",
-      github: "https://github.com/gauravMishra08",
-      linkedin: "https://www.linkedin.com/in/gaurav-mishra-2668691b3/",
-      instagram: "https://www.instagram.com/_mishraagaurav/"
-    },
-    {
-      name: "Utkarsh Jaiswal",
-      role: "Developer",
-      image: "Utkarsh.png",
-      portfolio: "https://karshj.framer.website/",
-      github: "https://github.com/UtkarshJaiswal1406",
-      linkedin: "https://www.linkedin.com/in/1406utkarsh/",
-      instagram: "https://www.instagram.com/its_karshj/"
-    },
+   
     {
       name: "Rashmika Das",
       role: "Contributor",
@@ -43,18 +26,6 @@ const About = () => {
       linkedin: "https://www.linkedin.com/in/rashmika-das-82a08b2b6/",
       instagram: "https://www.instagram.com/rashmiikka/"
     },
-    {
-      name: "Saatvik Shashank",
-      role: "Contributor",
-      image: "Saatvik.png",
-      portfolio: "https://saatvikss-teal.vercel.app/",
-      github: "https://github.com/SaatvikSS",
-      linkedin: "https://www.linkedin.com/in/saatvikss/",
-      instagram: "https://www.instagram.com/saatvik_ss/"
-    },
-
-  ]
-
   const faqs = [
     {
       question: "What exactly is CampusOrbit?",
